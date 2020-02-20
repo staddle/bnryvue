@@ -1,0 +1,276 @@
+body {
+  background-image: url(../imgs/tri_2viewports.jpg);
+  background-size: contain;
+  font-family: Roboto,monospace;
+  color: white; }
+
+.color-secondary {
+  background-color: #01baef;
+  color: #fff; }
+
+@-webkit-keyframes animateShadow {
+  0% {
+    color: #9400D3; }
+  15% {
+    color: #4B0082; }
+  30% {
+    color: #0000FF; }
+  45% {
+    color: #00c3ff; }
+  60% {
+    color: #00FF00; }
+  75% {
+    color: #FFFF00; }
+  90% {
+    color: #FF0000; }
+  100% {
+    color: #9400D3; } }
+@keyframes animateShadow {
+  0% {
+    color: #9400D3; }
+  15% {
+    color: #4B0082; }
+  30% {
+    color: #0000FF; }
+  45% {
+    color: #00c3ff; }
+  60% {
+    color: #00FF00; }
+  75% {
+    color: #FFFF00; }
+  90% {
+    color: #FF0000; }
+  100% {
+    color: #9400D3; } }
+.link-color-secondary:link, .link-color-secondary:visited {
+  color: #de2c16;
+  text-decoration: none;
+  padding: 1px 4px;
+  padding-bottom: 6px;
+  border-radius: 5px;
+  text-align: center;
+  display: inline-block;
+  transition: all .2s ease-in;
+  font-size: 18pt;
+  font-weight: bold;
+  animation: animateShadow 5s infinite; }
+
+.link-color-secondary:hover {
+  color: #ee6352;
+  background-color: #ffffff22;
+  padding: 1px 4px;
+  padding-bottom: 6px;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none; }
+
+.link-color-secondary:active {
+  color: var(--secondary);
+  border: var(--secondary) solid 1px;
+  padding: 1px 4px;
+  padding-bottom: 6px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 5px;
+  text-decoration: none; }
+
+.middle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal; }
+
+.divider {
+  display: block;
+  position: relative;
+  padding: 0;
+  margin: 8px auto;
+  height: 0;
+  width: 100%;
+  max-height: 0;
+  font-size: 1px;
+  line-height: 0;
+  clear: both;
+  border: none;
+  border-top: 1px solid #aaaaaa;
+  border-bottom: 1px solid #ffffff; }
+
+.maindiv {
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 5px; }
+
+.no-wrap {
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.flex-content {
+  display: flex;
+  justify-content: space-between; }
+
+.links-header {
+  color: white;
+  font-family: "Helvetica Neue",sans-serif;
+  font-size: 5rem;
+  text-align: center;
+  letter-spacing: .2rem;
+  margin-bottom: 2rem; }
+
+.links-list {
+  width: 100%;
+  padding: 1rem; }
+
+.links-list-item {
+  display: inline;
+  padding: 5px;
+  font-size: initial; }
+
+.links-list-item a {
+  transition: all ease-in .3s;
+  color: #aaaaaa;
+  text-decoration: none; }
+
+.links-list-item a:hover {
+  color: white;
+  text-decoration: none; }
+
+.text-dec-none {
+  text-decoration: none; }
+
+.vertical-center {
+  min-height: 100%;
+  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh;
+  /* These two lines are counted as one :-)       */
+  display: flex;
+  align-items: center; }
+
+/* The sidebar menu */
+.sidenav {
+  width: 10%;
+  /* Set the width of the sidebar */
+  position: fixed;
+  /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1;
+  /* Stay on top */
+  top: 100px;
+  /* Stay at the top */
+  left: 2%;
+  background-color: rgba(77, 204, 189, 0.9);
+  /* Black */
+  overflow-x: hidden;
+  /* Disable horizontal scroll */ }
+
+/* The navigation menu links */
+.sidenav-link {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #EEE;
+  display: block; }
+
+/* When you mouse over the navigation links, change their color */
+.sidenav-link:hover {
+  color: #FFF;
+  text-decoration: none;
+  background-color: rgba(40, 139, 127, 0.9); }
+
+/*Footer*/
+.footer-copyright {
+  background-color: #0192bc; }
+
+.page-footer {
+  margin-top: 1rem; }
+
+/* -------------------------------------- */
+.col-self-1 {
+  flex: 0 0 5%;
+  max-width: 5%; }
+
+.col-self-2 {
+  flex: 0 0 17%;
+  max-width: 17%; }
+
+.col-self-7 {
+  flex: 0 0 78%;
+  max-width: 78%; }
+
+.bg-color-1 {
+  background-color: rgba(1, 186, 239, 0.9);
+  color: #000; }
+
+.bg-color-2 {
+  background-color: rgba(238, 99, 82, 0.9);
+  color: #000; }
+
+.bg-color-3 {
+  background-color: rgba(77, 204, 189, 0.9);
+  color: #000; }
+
+.bg-color-4 {
+  background-color: rgba(35, 61, 77, 0.9);
+  color: #fff; }
+
+.bg-color-5 {
+  background-color: rgba(254, 127, 45, 0.9);
+  color: #000; }
+
+.color-1 {
+  background-color: #01baef;
+  color: #000; }
+
+.color-2 {
+  background-color: #ee6352;
+  color: #000; }
+
+.color-3 {
+  background-color: #4dccbd;
+  color: #000; }
+
+.color-4 {
+  background-color: #233d4d;
+  color: #fff; }
+
+.color-5 {
+  background-color: #fe7f2d;
+  color: #000; }
+
+.bg-color-t {
+  background-color: #00000000; }
+
+.testbig {
+  height: 2160px; }
+
+.colored-bg {
+  background-color: rgba(255, 255, 255, 0.5); }
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-width: 600px) {
+  .sidenav {
+    display: none; }
+
+  .sidenav a {
+    font-size: 18px; }
+
+  .col-self-2 {
+    flex: 0 0 5%;
+    max-width: 5%; }
+
+  .col-self-1 {
+    flex: 0 0 5%;
+    max-width: 5%; }
+
+  .col-self-7 {
+    flex: 0 0 90%;
+    max-width: 90%; } }
+
+/*# sourceMappingURL=style.css.map */
