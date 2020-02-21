@@ -35,7 +35,7 @@
   top: 0;
   z-index: 5; }
 
-.nav-active-line {
+.router-link-active {
   border-bottom: 2px solid #01baef; }
 
 /*# sourceMappingURL=nav.css.map */

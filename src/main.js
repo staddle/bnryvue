@@ -4,9 +4,16 @@ import VueRouter from 'vue-router'
 import Home from './components/Home.vue'
 import Projects from './components/Projects.vue'
 import About from './components/About.vue'
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import PortalVue from 'portal-vue'
 
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+Vue.use(PortalVue)
 Vue.use(VueRouter)
+Vue.use(BootstrapVue)
+Vue.use(IconsPlugin)
 
 Vue.config.productionTip = false
 
@@ -14,7 +21,8 @@ const router = new VueRouter({
   mode: 'history',
   base: __dirname,
   routes: [
-    {path: '/', alias: '/home', component: Home},
+    {path: '/', redirect: '/home'},
+    {path: '/home', component: Home},
     {path: '/projects', component: Projects},
     {path: '/about', component: About}
   ]
