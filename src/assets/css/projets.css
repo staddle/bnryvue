@@ -1,0 +1,11 @@
+.image-size {
+  width: 100vw;
+  height: 60vh;
+  object-fit: cover;
+  overflow: hidden; }
+
+.container-fix {
+  padding-left: 0;
+  padding-right: 0; }
+
+/*# sourceMappingURL=projets.css.map */
