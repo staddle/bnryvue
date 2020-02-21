@@ -132,7 +132,8 @@ body {
 .links-list-item {
   display: inline;
   padding: 5px;
-  font-size: initial; }
+  font-size: initial;
+  white-space: nowrap; }
 
 .links-list-item a {
   transition: all ease-in .3s;

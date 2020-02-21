@@ -3,8 +3,8 @@
     <div class="vertical-center">
     <div class="container-fluid">
         <div class="row align-items-center">
-            <div class="col-3"></div>
-            <div class="col-6">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
                 <div class="maindiv">
                     <h1 class="links-header">staddle</h1>
                     <hr class="divider">
@@ -31,7 +31,7 @@
                     
                     </div>
                 </div>
-                <div class="col-3"></div>
+                <div class="col-md-3"></div>
             </div>
         </div>
     </div>
@@ -41,10 +41,8 @@
 </template>
 
 <script>
+
 export default {
-  name: 'Home',
-  props: {
-    
-  }
+  name: 'Home'
 }
 </script>

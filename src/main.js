@@ -2,6 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 import Home from './components/Home.vue'
+import Projects from './components/Projects.vue'
+import About from './components/About.vue'
 
 
 Vue.use(VueRouter)
@@ -12,7 +14,9 @@ const router = new VueRouter({
   mode: 'history',
   base: __dirname,
   routes: [
-    {path: '/', component: Home}
+    {path: '/', alias: '/home', component: Home},
+    {path: '/projects', component: Projects},
+    {path: '/about', component: About}
   ]
 })
 
