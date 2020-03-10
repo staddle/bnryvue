@@ -17,6 +17,17 @@ Vue.use(IconsPlugin)
 
 Vue.config.productionTip = false
 
+Vue.directive('scroll', {
+  inserted: function (el, binding) {
+    let f = function (evt) {
+      if (binding.value(evt, el)) {
+        window.removeEventListener('scroll', f)
+      }
+    }
+    window.addEventListener('scroll', f)
+  }
+})
+
 const router = new VueRouter({
   mode: 'history',
   base: __dirname,

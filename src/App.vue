@@ -33,7 +33,7 @@
 
 <script>
 import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 export default {
   name: 'app'
@@ -43,4 +43,8 @@ export default {
 <style lang="scss">
   @import url('./assets/css/style.css');
   @import url('./assets/css/nav.css');
+
+  .simplebar{
+    height: 100px;
+  }
 </style>

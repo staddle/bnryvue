@@ -5,45 +5,11 @@ body {
   color: white; }
 
 .color-secondary {
-  background-color: #01baef;
+  background-color: #9ad4d6;
   color: #fff; }
 
-@-webkit-keyframes animateShadow {
-  0% {
-    color: #9400D3; }
-  15% {
-    color: #4B0082; }
-  30% {
-    color: #0000FF; }
-  45% {
-    color: #00c3ff; }
-  60% {
-    color: #00FF00; }
-  75% {
-    color: #FFFF00; }
-  90% {
-    color: #FF0000; }
-  100% {
-    color: #9400D3; } }
-@keyframes animateShadow {
-  0% {
-    color: #9400D3; }
-  15% {
-    color: #4B0082; }
-  30% {
-    color: #0000FF; }
-  45% {
-    color: #00c3ff; }
-  60% {
-    color: #00FF00; }
-  75% {
-    color: #FFFF00; }
-  90% {
-    color: #FF0000; }
-  100% {
-    color: #9400D3; } }
 .link-color-secondary:link, .link-color-secondary:visited {
-  color: #de2c16;
+  color: #121416;
   text-decoration: none;
   padding: 1px 4px;
   padding-bottom: 6px;
@@ -56,7 +22,7 @@ body {
   animation: animateShadow 5s infinite; }
 
 .link-color-secondary:hover {
-  color: #ee6352;
+  color: #343a40;
   background-color: #ffffff22;
   padding: 1px 4px;
   padding-bottom: 6px;
@@ -107,7 +73,11 @@ body {
 .maindiv {
   color: white;
   padding: 1rem 1.5rem;
-  border-radius: 5px; }
+  border-radius: 5px;
+  min-width: 100%; }
+
+.col-before {
+  max-width: 0%; }
 
 .no-wrap {
   text-overflow: ellipsis;
@@ -115,32 +85,33 @@ body {
 
 .flex-content {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  flex-wrap: wrap; }
 
 .links-header {
   color: white;
   font-family: "Helvetica Neue",sans-serif;
-  font-size: 5rem;
+  font-size: 20vw;
   text-align: center;
   letter-spacing: .2rem;
-  margin-bottom: 2rem; }
+  margin-bottom: 1rem; }
 
 .links-list {
   width: 100%;
-  padding: 1rem; }
+  padding: 1rem;
+  transition: all ease-in .1s; }
 
 .links-list-item {
   display: inline;
   padding: 5px;
-  font-size: initial;
-  white-space: nowrap; }
+  font-size: initial; }
 
-.links-list-item a {
-  transition: all ease-in .3s;
+.links-link {
+  transition: all ease-in .2s;
   color: #aaaaaa;
   text-decoration: none; }
 
-.links-list-item a:hover {
+.links-link:hover {
   color: white;
   text-decoration: none; }
 
@@ -155,123 +126,46 @@ body {
   display: flex;
   align-items: center; }
 
-/* The sidebar menu */
-.sidenav {
-  width: 10%;
-  /* Set the width of the sidebar */
-  position: fixed;
-  /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1;
-  /* Stay on top */
-  top: 100px;
-  /* Stay at the top */
-  left: 2%;
-  background-color: rgba(77, 204, 189, 0.9);
-  /* Black */
-  overflow-x: hidden;
-  /* Disable horizontal scroll */ }
-
-/* The navigation menu links */
-.sidenav-link {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #EEE;
-  display: block; }
-
-/* When you mouse over the navigation links, change their color */
-.sidenav-link:hover {
-  color: #FFF;
-  text-decoration: none;
-  background-color: rgba(40, 139, 127, 0.9); }
-
-/*Footer*/
-.footer-copyright {
-  background-color: #0192bc; }
-
-.page-footer {
-  margin-top: 1rem; }
-
-/* -------------------------------------- */
-.col-self-1 {
-  flex: 0 0 5%;
-  max-width: 5%; }
-
-.col-self-2 {
-  flex: 0 0 17%;
-  max-width: 17%; }
-
-.col-self-7 {
-  flex: 0 0 78%;
-  max-width: 78%; }
-
-.bg-color-1 {
-  background-color: rgba(1, 186, 239, 0.9);
-  color: #000; }
-
-.bg-color-2 {
-  background-color: rgba(238, 99, 82, 0.9);
-  color: #000; }
-
-.bg-color-3 {
-  background-color: rgba(77, 204, 189, 0.9);
-  color: #000; }
-
-.bg-color-4 {
-  background-color: rgba(35, 61, 77, 0.9);
-  color: #fff; }
-
-.bg-color-5 {
-  background-color: rgba(254, 127, 45, 0.9);
-  color: #000; }
-
-.color-1 {
-  background-color: #01baef;
-  color: #000; }
-
-.color-2 {
-  background-color: #ee6352;
-  color: #000; }
-
-.color-3 {
-  background-color: #4dccbd;
-  color: #000; }
-
-.color-4 {
-  background-color: #233d4d;
-  color: #fff; }
-
-.color-5 {
-  background-color: #fe7f2d;
-  color: #000; }
-
-.bg-color-t {
-  background-color: #00000000; }
-
 .testbig {
   height: 2160px; }
 
-.colored-bg {
-  background-color: rgba(255, 255, 255, 0.5); }
+.width-100 {
+  width: 100%; }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-@media screen and (max-width: 600px) {
-  .sidenav {
-    display: none; }
+.links-link-twitter:hover {
+  color: #1da1f2; }
 
-  .sidenav a {
-    font-size: 18px; }
+.links-link-twitch:hover {
+  color: #9a7fcc; }
 
-  .col-self-2 {
-    flex: 0 0 5%;
-    max-width: 5%; }
+.links-link-osu:hover {
+  color: #e866a0; }
 
-  .col-self-1 {
-    flex: 0 0 5%;
-    max-width: 5%; }
+.links-link-youtube:hover {
+  color: #ff3333; }
 
-  .col-self-7 {
-    flex: 0 0 90%;
-    max-width: 90%; } }
+::-webkit-scrollbar {
+  width: 8px; }
+
+::-webkit-scrollbar-track {
+  background: #343a40; }
+
+::-webkit-scrollbar-thumb {
+  background: #9ad4d6; }
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #9ad4d6 #343a40; }
+
+@media (min-width: 768px) {
+  .col-before {
+    min-width: 20%;
+    display: block; }
+
+  .maindiv {
+    min-width: 60%; } }
+@media (min-width: 576px) {
+  .links-header {
+    font-size: 6rem; } }
 
 /*# sourceMappingURL=style.css.map */
