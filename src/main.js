@@ -17,16 +17,23 @@ Vue.use(IconsPlugin)
 
 Vue.config.productionTip = false
 
-Vue.directive('scroll', {
-  inserted: function (el, binding) {
-    let f = function (evt) {
-      if (binding.value(evt, el)) {
-        window.removeEventListener('scroll', f)
-      }
+/*const GSAPScrollMagic = {
+  install (Vue, options) {
+    // GSAP
+    Vue.prototype.$GSAP = {
+      gsap,
+      TweenMax,
+      TimelineMax
     }
-    window.addEventListener('scroll', f)
+    // ScrollMagic
+    Vue.prototype.$ScrollMagic = {
+      Controller: new ScrollMagic.Controller(),
+      Scene: ScrollMagic.Scene
+    }
   }
-})
+}
+
+Vue.use(GSAPScrollMagic)*/
 
 const router = new VueRouter({
   mode: 'history',

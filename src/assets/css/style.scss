@@ -118,7 +118,7 @@ body{
 .links-list{
     width: 100%;
     padding: 1rem;
-    transition: all ease-in .1s;
+    //transition: all ease-in .1s;
 }
 .links-list-item{
     display: inline;
@@ -161,6 +161,11 @@ body{
 }
 .links-link-youtube:hover{
     color: lighten(rgb(255,0,0), 10%);
+}
+.fixed-mid{
+    position: absolute;
+    top: 50vh;
+    z-index: -10;
 }
 
 //Scrollbar:

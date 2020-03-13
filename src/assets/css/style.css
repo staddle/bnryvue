@@ -98,8 +98,7 @@ body {
 
 .links-list {
   width: 100%;
-  padding: 1rem;
-  transition: all ease-in .1s; }
+  padding: 1rem; }
 
 .links-list-item {
   display: inline;
@@ -143,6 +142,11 @@ body {
 
 .links-link-youtube:hover {
   color: #ff3333; }
+
+.fixed-mid {
+  position: absolute;
+  top: 50vh;
+  z-index: -10; }
 
 ::-webkit-scrollbar {
   width: 8px; }
