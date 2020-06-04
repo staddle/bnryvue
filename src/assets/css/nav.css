@@ -1,41 +1,46 @@
 .navbar-brand-link span {
   color: #8d9ba5;
-  -moz-transition: color .2s ease-in;
-  -o-transition: color .2s ease-in;
   -webkit-transition: color .2s ease-in;
-  transition: color .2s ease-in; }
+  transition: color .2s ease-in;
+}
 
 .navbar-brand-link:hover span {
-  color: #fff; }
+  color: #fff;
+}
 
 .nav-item {
-  padding: 0px 0px; }
+  padding: 0px 0px;
+}
 
 .nav-link {
   padding: 10px 0px;
-  -moz-transition: all .2s ease-in;
-  -o-transition: all .2s ease-in;
   -webkit-transition: all .2s ease-in;
   transition: all .2s ease-in;
-  border-bottom: 2px solid #8d9ba500; }
+  border-bottom: 2px solid #8d9ba500;
+}
 
 .nav-link.nav-active-line {
-  border-bottom: 2px solid #8d9ba5; }
+  border-bottom: 2px solid #8d9ba5;
+}
 
 .nav-link:hover {
-  border-bottom: 2px solid #8d9ba5; }
+  border-bottom: 2px solid #8d9ba5;
+}
 
 .navbar {
   padding: 0rem 1rem;
   background-color: rgba(20, 20, 20, 0.7);
-  color: white; }
+  color: white;
+}
 
 .navbar-overwrite {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
-  z-index: 5; }
+  z-index: 5;
+}
 
 .router-link-active {
-  border-bottom: 2px solid #9ad4d6; }
-
+  border-bottom: 2px solid #9ad4d6;
+}
 /*# sourceMappingURL=nav.css.map */

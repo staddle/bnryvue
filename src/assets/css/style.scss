@@ -14,7 +14,7 @@ $color5: #3A055A;
 
 body{
     background-image: url(../imgs/tri_2viewports.jpg);
-    background-size: contain;
+    background-size: cover;
     font-family: Roboto,monospace;
     color: white;
 }
@@ -88,6 +88,10 @@ body{
     border: none;
     border-top: 1px solid #aaaaaa;
     border-bottom: 1px solid #ffffff;
+}
+.fitFull{
+    padding-left: 0;
+    padding-right: 0;
 }
 .maindiv{
     color: white;
@@ -167,6 +171,18 @@ body{
     top: 50vh;
     z-index: -10;
 }
+.percent50{
+    width: 100%;
+    height: 50vh;
+}
+.backgroundimg{
+    z-index: -1;
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+}
+
+
 
 //Scrollbar:
 ::-webkit-scrollbar{

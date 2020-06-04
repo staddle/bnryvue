@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid">
+    <div class="container-fluid fitFull">
         <span id="anchor-top-mid" class="fixed-mid"></span>
         <div class="row">
             <div class="width-100 vertical-center">
@@ -33,15 +33,56 @@
                 <div class="col-before"></div>
             </div>
         </div>
-        <div class="testbig"></div>
+        
+        <div class="percent50" style="position: absolute; top: 100vh">
+            <div style="position: relative; width: 100%">
+                <parallax :speed-factor="0" style="position: absolute; width: 100%">
+                    <img src='../assets/imgs/005.png' class="percent50">
+                </parallax>
+                <parallax :speed-factor="0.2" style="position: absolute; width: 100%">
+                    <img src='../assets/imgs/pinkfull_transparent.png' class="percent50">
+                </parallax>
+            </div>
+        </div>
+        <img src='../assets/imgs/p2z1.png' class="backgroundimg" style="position: absolute; top: 150vh">
+        <div class="percent50" style="position: absolute; top: 250vh">
+            <div style="position: relative; width: 100%">
+                <parallax :speed-factor="0" style="position: absolute; width: 100%">
+                    <img src='../assets/imgs/005.png' class="percent50">
+                </parallax>
+                <parallax :speed-factor="0.2" style="position: absolute; width: 100%">
+                    <img src='../assets/imgs/pinkfull_transparent.png' class="percent50">
+                </parallax>
+            </div>
+        </div>
+        <img src='../assets/imgs/p3.png' class="backgroundimg" style="position: absolute; top: 300vh">
+        
+        <!--<div style="position: relative; width: 100%">
+            <parallax :speed-factor="0" style="position: absolute; width: 100%">
+                <img src='../assets/imgs/005.png'>
+            </parallax>
+            <parallax :speed-factor="0.2" style="position: absolute; width: 100%">
+                <img src='../assets/imgs/pink_1.png'>
+            </parallax>
+            <parallax :speed-factor="0.3" style="position: absolute; width: 100%; top: 0; left: 0">
+                <img src='../assets/imgs/pink_2.png'>
+            </parallax>
+            <parallax :speed-factor="0.4" style="position: absolute; width: 100%">
+                <img src='../assets/imgs/pink_3.png'>
+            </parallax>
+        </div> -->
     </div>
 </template>
 
 <script>
 import { ScrollScene, addIndicators } from 'scrollscene'
 import { gsap } from 'gsap'
+import Parallax from 'vue-parallaxy'
 
 export default {
+    components: {
+        Parallax
+    },
     mounted () {
         const linksTL = gsap.timeline({paused: true})
 
