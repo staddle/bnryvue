@@ -1,5 +1,6 @@
 <template>
     <div class="container-fluid fitFull">
+        <img src='../assets/imgs/tri_1viewport.jpg' class="backgroundimg" style="position: absolute; top: 0vh;">
         <span id="anchor-top-mid" class="fixed-mid"></span>
         <div class="row">
             <div class="width-100 vertical-center">
@@ -33,44 +34,18 @@
                 <div class="col-before"></div>
             </div>
         </div>
-        
         <div class="percent50" style="position: absolute; top: 100vh">
-            <div style="position: relative; width: 100%">
-                <parallax :speed-factor="0" style="position: absolute; width: 100%">
-                    <img src='../assets/imgs/005.png' class="percent50">
-                </parallax>
-                <parallax :speed-factor="0.2" style="position: absolute; width: 100%">
-                    <img src='../assets/imgs/pinkfull_transparent.png' class="percent50">
-                </parallax>
+            <div class="parallax" style="height: 100%">
+                <img ref='parallax1' class='toparallax' speed='0.2' src='../assets/imgs/pinkfull_transparent.png'>
             </div>
         </div>
         <img src='../assets/imgs/p2z1.png' class="backgroundimg" style="position: absolute; top: 150vh">
         <div class="percent50" style="position: absolute; top: 250vh">
-            <div style="position: relative; width: 100%">
-                <parallax :speed-factor="0" style="position: absolute; width: 100%">
-                    <img src='../assets/imgs/005.png' class="percent50">
-                </parallax>
-                <parallax :speed-factor="0.2" style="position: absolute; width: 100%">
-                    <img src='../assets/imgs/pinkfull_transparent.png' class="percent50">
-                </parallax>
+            <div class="parallax" style="height: 100%">
+                <img ref='parallax2' class='toparallax' speed='0.2' src='../assets/imgs/pinkfull_transparent.png'>
             </div>
         </div>
         <img src='../assets/imgs/p3.png' class="backgroundimg" style="position: absolute; top: 300vh">
-        
-        <!--<div style="position: relative; width: 100%">
-            <parallax :speed-factor="0" style="position: absolute; width: 100%">
-                <img src='../assets/imgs/005.png'>
-            </parallax>
-            <parallax :speed-factor="0.2" style="position: absolute; width: 100%">
-                <img src='../assets/imgs/pink_1.png'>
-            </parallax>
-            <parallax :speed-factor="0.3" style="position: absolute; width: 100%; top: 0; left: 0">
-                <img src='../assets/imgs/pink_2.png'>
-            </parallax>
-            <parallax :speed-factor="0.4" style="position: absolute; width: 100%">
-                <img src='../assets/imgs/pink_3.png'>
-            </parallax>
-        </div> -->
     </div>
 </template>
 
@@ -81,7 +56,15 @@ import Parallax from 'vue-parallaxy'
 
 export default {
     components: {
-        Parallax
+        //Parallax
+    },
+    created () {
+        window.addEventListener('scroll', this.handleScroll);
+        window.addEventListener('ready', this.handleScroll);
+    },
+    destroyed () {
+        window.removeEventListener('scroll', this.handleScroll);
+        window.removeEventListener('ready', this.handleScroll);
     },
     mounted () {
         const linksTL = gsap.timeline({paused: true})
@@ -119,6 +102,61 @@ export default {
                 timeline: nameTL
             }
         })
+    },
+    methods: {
+        handleScroll(event){
+            var img = this.$refs.parallax1;
+            var imgParent = this.$refs.parallax1.parentElement;
+            var speed = parseFloat(img.attributes['speed'].value);
+            var rect = imgParent.getBoundingClientRect();
+            var imgY = rect.top + document.body.scrollTop;
+            var winY = document.body.scrollTop;
+            var winH = parseFloat(getComputedStyle(document.body, null).height.replace("px", ""));
+            var parentH = imgParent.clientHeight;
+
+            // The next pixel to show on screen      
+            var winBottom = winY + winH;
+
+            // If block is shown on screen
+            if (winBottom > imgY && winY < imgY + parentH) {
+                // Number of pixels shown after block appear
+                var imgBottom = ((winBottom - imgY) * speed);
+                // Max number of pixels until block disappear
+                var imgTop = winH + parentH;
+                // Porcentage between start showing until disappearing
+                //var imgPercent = ((imgBottom / imgTop) * 100) + (50 - (speed * 50));
+                var imgPercent = ((imgBottom / imgTop) * 100);
+            }
+            //img.style.top = imgPercent + '%';
+            img.style.transform = 'translate(0%, -' + imgPercent + '%)';
+            
+            //again for other
+            img = this.$refs.parallax2;
+            imgParent = this.$refs.parallax2.parentElement;
+            speed = parseFloat(img.attributes['speed'].value);
+            rect = imgParent.getBoundingClientRect();
+            imgY = rect.top + document.body.scrollTop;
+            winY = document.body.scrollTop;
+            winH = parseFloat(getComputedStyle(document.body, null).height.replace("px", ""));
+            parentH = imgParent.clientHeight;
+
+            // The next pixel to show on screen      
+            winBottom = winY + winH;
+
+            // If block is shown on screen
+            if (winBottom > imgY && winY < imgY + parentH) {
+                // Number of pixels shown after block appear
+                imgBottom = ((winBottom - imgY) * speed);
+                // Max number of pixels until block disappear
+                imgTop = winH + parentH;
+                // Porcentage between start showing until disappearing
+                //var imgPercent = ((imgBottom / imgTop) * 100) + (50 - (speed * 50));
+                imgPercent = ((imgBottom / imgTop) * 100);
+            }
+            
+            //img.style.top = imgPercent + '%';
+            img.style.transform = 'translate(0%, -' + imgPercent + '%)';
+        }
     }
 }
 </script>
