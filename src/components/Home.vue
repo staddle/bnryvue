@@ -1,6 +1,5 @@
 <template>
     <div class="container-fluid fitFull">
-        <img src='../assets/imgs/tri_1viewport.jpg' class="backgroundimg" style="position: absolute; top: 0vh;">
         <span id="anchor-top-mid" class="fixed-mid"></span>
         <div class="row">
             <div class="width-100 vertical-center">
@@ -34,7 +33,7 @@
                 <div class="col-before"></div>
             </div>
         </div>
-        <div class="percent50" style="position: absolute; top: 100vh">
+        <!--<div class="percent50" style="position: absolute; top: 100vh">
             <div class="parallax" style="height: 100%">
                 <img ref='parallax1' class='toparallax' speed='0.2' src='../assets/imgs/pinkfull_transparent.png'>
             </div>
@@ -45,7 +44,7 @@
                 <img ref='parallax2' class='toparallax' speed='0.2' src='../assets/imgs/pinkfull_transparent.png'>
             </div>
         </div>
-        <img src='../assets/imgs/p3.png' class="backgroundimg" style="position: absolute; top: 300vh">
+        <img src='../assets/imgs/p3.png' class="backgroundimg" style="position: absolute; top: 300vh">-->
     </div>
 </template>
 
@@ -59,12 +58,12 @@ export default {
         //Parallax
     },
     created () {
-        window.addEventListener('scroll', this.handleScroll);
-        window.addEventListener('ready', this.handleScroll);
+        //window.addEventListener('scroll', this.handleScroll);
+        //window.addEventListener('ready', this.handleScroll);
     },
     destroyed () {
-        window.removeEventListener('scroll', this.handleScroll);
-        window.removeEventListener('ready', this.handleScroll);
+        //window.removeEventListener('scroll', this.handleScroll);
+        //window.removeEventListener('ready', this.handleScroll);
     },
     mounted () {
         const linksTL = gsap.timeline({paused: true})
@@ -104,7 +103,7 @@ export default {
         })
     },
     methods: {
-        handleScroll(event){
+        /**handleScroll(event){
             var img = this.$refs.parallax1;
             var imgParent = this.$refs.parallax1.parentElement;
             var speed = parseFloat(img.attributes['speed'].value);
@@ -127,36 +126,14 @@ export default {
                 //var imgPercent = ((imgBottom / imgTop) * 100) + (50 - (speed * 50));
                 var imgPercent = ((imgBottom / imgTop) * 100);
             }
-            //img.style.top = imgPercent + '%';
-            img.style.transform = 'translate(0%, -' + imgPercent + '%)';
-            
-            //again for other
-            img = this.$refs.parallax2;
-            imgParent = this.$refs.parallax2.parentElement;
-            speed = parseFloat(img.attributes['speed'].value);
-            rect = imgParent.getBoundingClientRect();
-            imgY = rect.top + document.body.scrollTop;
-            winY = document.body.scrollTop;
-            winH = parseFloat(getComputedStyle(document.body, null).height.replace("px", ""));
-            parentH = imgParent.clientHeight;
-
-            // The next pixel to show on screen      
-            winBottom = winY + winH;
-
-            // If block is shown on screen
-            if (winBottom > imgY && winY < imgY + parentH) {
-                // Number of pixels shown after block appear
-                imgBottom = ((winBottom - imgY) * speed);
-                // Max number of pixels until block disappear
-                imgTop = winH + parentH;
-                // Porcentage between start showing until disappearing
-                //var imgPercent = ((imgBottom / imgTop) * 100) + (50 - (speed * 50));
-                imgPercent = ((imgBottom / imgTop) * 100);
+            if (imgPercent<0){
+                img.style.transform = 'translate(0%, ' + imgPercent*(-1) + '%)';
+                img.style.top = imgPercent + '%';
+            }else{
+                img.style.top = imgPercent + '%';
+                img.style.transform = 'translate(0%, -' + imgPercent + '%)';
             }
-            
-            //img.style.top = imgPercent + '%';
-            img.style.transform = 'translate(0%, -' + imgPercent + '%)';
-        }
+        }**/
     }
 }
 </script>

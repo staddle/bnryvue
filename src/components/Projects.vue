@@ -19,7 +19,7 @@
               <template v-slot:img>
                 <img
                   class="d-block image-size"
-                  src="../assets/imgs/carousel1.jpg"
+                  src="../assets/imgs/p2z1.png"
                 >
               </template>
             </b-carousel-slide>
@@ -27,7 +27,7 @@
               <template v-slot:img>
                 <img
                   class="d-block image-size"
-                  src="../assets/imgs/carousel2.png"
+                  src="../assets/imgs/p3.png"
                 >
               </template>
             </b-carousel-slide>
@@ -35,18 +35,12 @@
               <template v-slot:img>
                 <img
                   class="d-block image-size"
-                  src="../assets/imgs/carousel3.jpg"
+                  src="../assets/imgs/p4.png"
                 >
               </template>
             </b-carousel-slide>
           </b-carousel>
-
-          <p class="mt-4">
-            Slide #: {{ slide }}<br>
-            Sliding: {{ sliding }}
-          </p>
         </div>
-        <div class="testbig"></div>
     </div>
 </template>
 

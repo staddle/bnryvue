@@ -1,5 +1,6 @@
 body {
-  background-size: cover;
+  background-image: url(../imgs/tri_2viewports.jpg);
+  background-size: auto;
   font-family: Roboto,monospace;
   color: white;
   overflow-x: hidden;
@@ -165,6 +166,8 @@ body {
       -ms-flex-align: center;
           align-items: center;
   z-index: 2;
+  position: absolute;
+  top: 0;
 }
 
 .testbig {

@@ -14,7 +14,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <router-link class="nav-link" to="/home">Home</router-link>
           </li>
@@ -22,7 +22,15 @@
             <router-link class="nav-link" to="/projects">Projects</router-link>
           </li>
           <li class="nav-item">
+            <router-link class="nav-link" to="/blog">Blog</router-link>
+          </li>
+          <li class="nav-item">
             <router-link class="nav-link" to="/about">About</router-link>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <router-link class="nav-link" to="/imprint">Imprint</router-link>
           </li>
         </ul>
       </div>
