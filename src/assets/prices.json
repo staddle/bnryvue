@@ -1,0 +1,23 @@
+{
+    "secondary": {
+        "Classic": 0,
+        "Shorty": 200,
+        "Frenzy": 400,
+        "Ghost": 500,
+        "Sheriff": 800
+    },
+    "primary": {
+        "Stinger": 1000,
+        "Spectre": 1600,
+        "Bucky": 900,
+        "Judge": 1500,
+        "Bulldog": 2100,
+        "Guardian": 2500,
+        "Phantom": 2900,
+        "Vandal": 2900,
+        "Marshal": 1100,
+        "Operator": 4500,
+        "Ares": 1700,
+        "Odin": 3200
+    }
+}
