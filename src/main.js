@@ -6,8 +6,12 @@ import Projects from './components/Projects.vue'
 import About from './components/About.vue'
 import Imprint from './components/Imprint.vue'
 import Valorantery from './components/Valorantery.vue'
+import ValorantParty from './components/ValorantParty.vue'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import PortalVue from 'portal-vue'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -17,6 +21,8 @@ Vue.use(VueRouter)
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 
+library.add(faCoffee)
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false
 
 /*const GSAPScrollMagic = {
@@ -46,7 +52,7 @@ const router = new VueRouter({
     {path: '/projects', component: Projects},
     {path: '/about', component: About},
     {path: '/imprint', component: Imprint},
-    {path: '/valorant', component: Valorantery}
+    {path: '/valorant', component: ValorantParty}
   ]
 })
 

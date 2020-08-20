@@ -44,3 +44,28 @@ $color5: #3A055A;
 .router-link-active{
     border-bottom: 2px solid $color1;
 }
+
+@media (max-width: 991.98px) {
+    .nav-link{
+        padding: 10px 0px;
+        padding-left: 1rem !important;
+        -moz-transition:all .2s ease-in;
+        -o-transition:all .2s ease-in;
+        -webkit-transition:all .2s ease-in;
+        transition:all .2s ease-in;
+        border-bottom: 0;
+        border-left: 2px solid #8d9ba500;
+    }
+    .nav-link.nav-active-line{
+        border-bottom: 0;
+        border-left: 2px solid #8d9ba5;
+    }
+    .nav-link:hover{
+        border-left: 2px solid #8d9ba5;
+        border-bottom: 0;
+    }
+    .router-link-active{
+        border-left: 2px solid $color1;
+        border-bottom: 0;
+    }
+}

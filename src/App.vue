@@ -25,6 +25,9 @@
             <router-link class="nav-link" to="/blog">Blog</router-link>
           </li>
           <li class="nav-item">
+            <router-link class="nav-link" to="/valorant">Ultimate Valorantery</router-link>
+          </li>
+          <li class="nav-item">
             <router-link class="nav-link" to="/about">About</router-link>
           </li>
         </ul>
@@ -40,8 +43,9 @@
 </template>
 
 <script>
-import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
+import 'bootstrap/dist/js/bootstrap.js';
 
 export default {
   name: 'app'

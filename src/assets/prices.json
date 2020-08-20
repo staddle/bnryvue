@@ -1,23 +1,88 @@
 {
+    "armor": {
+        "half": {
+            "name": "Half armor",
+            "price": 400
+        },
+        "full": {
+            "name": "Full armor",
+            "price": 1000
+        }
+    },
     "secondary": {
-        "Classic": 0,
-        "Shorty": 200,
-        "Frenzy": 400,
-        "Ghost": 500,
-        "Sheriff": 800
+        "Classic": {
+            "name": "Classic",
+            "price": 0
+        },
+        "Shorty": {
+            "name": "Shorty",
+            "price": 200
+        },
+        "Frenzy": {
+            "name": "Frenzy",
+            "price": 400
+        },
+        "Ghost": {
+            "name": "Ghost",
+            "price": 500
+        },
+        "Sheriff": {
+            "name": "Sheriff",
+            "price": 800
+        }
     },
     "primary": {
-        "Stinger": 1000,
-        "Spectre": 1600,
-        "Bucky": 900,
-        "Judge": 1500,
-        "Bulldog": 2100,
-        "Guardian": 2500,
-        "Phantom": 2900,
-        "Vandal": 2900,
-        "Marshal": 1100,
-        "Operator": 4500,
-        "Ares": 1700,
-        "Odin": 3200
+        "No Primary": {
+            "name": "No Primary",
+            "price": 0
+        },
+        "Stinger": {
+            "name": "Stinger",
+            "price": 1000
+        },
+        "Spectre": {
+            "name": "Spectre",
+            "price": 1600
+        },
+        "Bucky": {
+            "name": "Bucky",
+            "price": 900
+        },
+        "Judge": {
+            "name": "Judge",
+            "price": 1500
+        },
+        "Bulldog": {
+            "name": "Bulldog",
+            "price": 2100
+        },
+        "Guardian": {
+            "name": "Guardian",
+            "price": 2500
+        },
+        "Phantom": {
+            "name": "Phantom",
+            "price": 2900
+        },
+        "Vandal": {
+            "name": "Vandal",
+            "price": 2900
+        },
+        "Marshal": {
+            "name": "Marshal",
+            "price": 1100
+        },
+        "Operator": {
+            "name": "Operator",
+            "price": 4500
+        },
+        "Ares": {
+            "name": "Ares",
+            "price": 1700
+        },
+        "Odin": {
+            "name": "Odin",
+            "price": 3200
+        }
     }
 }
