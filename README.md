@@ -1,4 +1,4 @@
-# new-project
+# BNRY.de VUE PROJECT
 
 ## Project setup
 ```
