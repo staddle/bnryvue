@@ -16,8 +16,8 @@
         </div>
         
         <div class="randomizer" v-if="joined==true">
-            <h4><span class="box">In party: <span class="bold">{{partycode}}</span></span> <a class="btn btn-danger">Leave Party</a></h4>
-            
+            <h4><span class="box">In party: <span class="bold">{{partycode}}</span></span> <a class="btn btn-danger" v-on:click="leaveparty">Leave Party</a></h4>
+            <span>Current: {{current}}</span>
             <Valorantery :partycode="partycode"></Valorantery>
         </div>
 
@@ -31,6 +31,7 @@
 
 <script>
 import Valorantery from "./Valorantery"
+import axios from 'axios'
 
 export default {
   name: 'ValorantParty',
@@ -40,13 +41,19 @@ export default {
   data: function() {
     return {
         partycode: null,
-        joined: false
+        joined: false,
+        current: null,
+        data: {}
     };
   },
   methods: {
     createcode: function(event){
-        this.partycode = this.randomString(5, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+        this.partycode = ''     //this.randomString(5, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
         this.joined = true;
+        var responses = {};
+        axios
+        .get('http://localhost:3000/createparty')
+        .then(response => (this.partycode = response.data.data.code, this.current = response.data.data.cur));
         //create party on database
     },
     randomString: function (length, chars) {
@@ -57,6 +64,12 @@ export default {
     joincode: function(event){
         this.joined = true;
         //register client as in party
+        axios
+        .get('http://localhost:3000/party/'+this.partycode)
+        .then(response => (this.current = response.data.data.cur));
+    },
+    leaveparty: function(event){
+      this.joined = false;
     }
   }
 }
