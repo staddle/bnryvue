@@ -3,6 +3,10 @@
         <div>
           <h1 style="text-decoration: underline">Ultimate Valorantery</h1>
         </div>
+        <div class="alert alert-primary" role="alert" v-if="alert==true">
+          {{alerttext}}
+          <span class="rightside">x</span>
+        </div>
         <div class="buttons" v-if="joined==false">
             <div class="row">
                 <div class="col">
@@ -16,14 +20,17 @@
         </div>
         
         <div class="randomizer" v-if="joined==true">
-            <h4><span class="box">In party: <span class="bold">{{partycode}}</span></span> <a class="btn btn-danger" v-on:click="leaveparty">Leave Party</a></h4>
-            <span>Current: {{current}}</span>
-            <Valorantery :partycode="partycode"></Valorantery>
+            <h4><span class="box">In party: <span class="bold">{{partycode}}</span></span> 
+            <a class="btn btn-danger" v-on:click="leaveparty">Leave Party</a>
+            <a class="btn btn-danger" v-on:click="deleteparty">Delete Party</a></h4>
+            
+            <Valorantery :partycode="partycode" :isleader="isleader"></Valorantery>
         </div>
 
         <div class="footer">
           <div class="container">
             Images from <a class="link-nocolor" href="https://valorant.fandom.com/wiki/Weapons">valorant.fandom.com</a>
+            <!--TODO: REMOVE BEFORE PRODUCTION--><span style="float: right;">Current: {{current}}</span>
           </div>
         </div>
     </div>
@@ -32,6 +39,7 @@
 <script>
 import Valorantery from "./Valorantery"
 import axios from 'axios'
+import curFuncs from '../assets/curFuncs.js'
 
 export default {
   name: 'ValorantParty',
@@ -43,18 +51,21 @@ export default {
         partycode: null,
         joined: false,
         current: null,
-        data: {}
+        data: {},
+        isleader: false,
+        alerttext: '',
+        alert: false
     };
   },
   methods: {
     createcode: function(event){
-        this.partycode = ''     //this.randomString(5, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+        this.partycode = '';
         this.joined = true;
         var responses = {};
-        axios
+        axios //create party on database
         .get('http://localhost:3000/createparty')
         .then(response => (this.partycode = response.data.data.code, this.current = response.data.data.cur));
-        //create party on database
+        this.isleader = true;
     },
     randomString: function (length, chars) {
         var result = '';
@@ -63,13 +74,24 @@ export default {
     },
     joincode: function(event){
         this.joined = true;
-        //register client as in party
-        axios
+        axios //register client as in party
         .get('http://localhost:3000/party/'+this.partycode)
-        .then(response => (this.current = response.data.data.cur));
+        .then(response => (this.current = curFuncs.fillUp(parseInt(response.data.data.cur,10).toString(2), 26)));
+        this.isleader = false;
     },
     leaveparty: function(event){
       this.joined = false;
+    },
+    deleteparty: function(event){
+      this.joined = false;
+      this.isleader = false
+      axios //register client as in party
+        .get('http://localhost:3000/party/delete/'+this.partycode);
+      this.alerttext = 'Party successfully deleted';
+      this.alert = true;
+      setTimeout(function() {
+          this.alert = false;
+      }, (3 * 1000));
     }
   }
 }

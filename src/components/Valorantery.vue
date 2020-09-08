@@ -7,10 +7,13 @@
             </div>
             <input type="number" id="price" name="price" v-model="creds" v-on:keyup.enter="roll">
             <a class="btn btn-primary" v-on:click="roll">Roll</a>
+            <div class="sidebtn">
+              <a class="btn btn-secondary" v-on:click="nextround">Next Round</a>
+            </div>
           </div>
         </div>
         <div class="weapons row">
-          <div class="row">
+          <div class="row" style="width: 100%">
             <div class="col">
               <div class="card bg-dark" style="width: 18rem;">
                 <div class="card-body">
@@ -48,13 +51,14 @@
 
 <script>
 import prices from '../assets/prices.json'
+import axios from 'axios'
 
 export default {
   name: 'Valorantery',
   mounted(){
     this.prices = prices;
   },
-  props: ['partycode'],
+  props: ['partycode', 'isleader'],
   data: function() {
     return {
       creds: 0,
@@ -69,6 +73,11 @@ export default {
   methods: {
     roll: function(event) {
       this.calculate(this.creds);
+    },
+    nextround: function(event) {
+      axios
+        .get('http://localhost:3000/party/'+this.partycode+'/nextround')
+        .then(response => (this.current = response.data.data.cur));
     },
     calculate: function(creds) {
       // primary
