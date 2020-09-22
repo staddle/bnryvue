@@ -6,6 +6,7 @@ import Projects from './components/Projects.vue'
 import About from './components/About.vue'
 import Imprint from './components/Imprint.vue'
 import Valorantery from './components/Valorantery.vue'
+import Blog from './components/Blog.vue'
 import ValorantParty from './components/ValorantParty.vue'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import PortalVue from 'portal-vue'
@@ -53,7 +54,8 @@ const router = new VueRouter({
     {path: '/projects', component: Projects},
     {path: '/about', component: About},
     {path: '/imprint', component: Imprint},
-    {path: '/valorant', component: ValorantParty}
+    {path: '/valorant', component: ValorantParty},
+    {path: '/blog', component: Blog}
   ]
 })
 
