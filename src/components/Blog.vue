@@ -1,24 +1,56 @@
 <template>
     <div>
-        This is a blog
+      <blog-feed :filters="filters"/>
+      <blog-post :post="post"/>
     </div>
 </template>
 
 <script>
-import axios from 'axios'
+import BlogFeed from './BlogFeed'
+import BlogPost from './BlogPost'
 
 export default {
   name: 'Blog',
-  data: function() {
-    return{
-      entries: []
-    };
+  components: {BlogFeed, BlogPost},
+  resource: 'Blog',
+  props: {
+    post: String,
+    author: String
   },
-  mounted: function() {
-    /*axios //create party on database
-      .get('http://localhost:3000/blog/latest/10')
-      .then(response => (this.entries.push(response.data.data))); //see how it looks with curl and change
-        */
+
+  data() {
+    return {
+      title: '',
+      labels: {
+        post: '',
+        author: ''
+      }
+    }
+  },
+
+  computed: {
+    content() {
+      return {title: this.title, labels: this.labels}
+    },
+    filters() {
+      let filters={}
+
+      if (this.post) filters.post = this.post
+      if (this.author) filters.author = this.author
+
+      return filters
+    }
+  },
+
+  mounted() {
+    this.$getResource('blog')
+      .then(x => {
+        //aaa
+      })
   }
 }
 </script>
+
+<style lang="sass">
+@import '../assets/css/blog.css'
+</style>

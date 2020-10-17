@@ -55,7 +55,9 @@ const router = new VueRouter({
     {path: '/about', component: About},
     {path: '/imprint', component: Imprint},
     {path: '/valorant', component: ValorantParty},
-    {path: '/blog', component: Blog}
+    {path: '/blog', component: Blog},
+    {path: '/blog/post/:id', props: true, component: Blog},
+    {path: '/blog/by/:author', props: true, component: Blog}
   ]
 })
 
