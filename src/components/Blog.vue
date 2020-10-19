@@ -1,7 +1,17 @@
 <template>
     <div>
-      <blog-feed :filters="filters"/>
-      <blog-post :post="post"/>
+      <div class="row heading">
+        <div class="w-50 mx-auto text-center">
+          <router-link to="/blog" class="nolink">
+            <h1>Blog</h1>
+          </router-link>
+          <hr class="divider">
+        </div>
+      </div>
+      <div class="row">
+        <blog-feed :filters="filters"/>
+        <blog-post :post="post"/>
+      </div>
     </div>
 </template>
 
@@ -41,12 +51,13 @@ export default {
       return filters
     }
   },
-
+  watch: {
+    '$route.name' (to, from) {
+      if (to !== from) this.navs++
+    }
+  },
   mounted() {
-    this.$getResource('blog')
-      .then(x => {
-        //aaa
-      })
+    //this.$getResource('blog')
   }
 }
 </script>

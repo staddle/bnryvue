@@ -1,0 +1,108 @@
+$color1: #9ad4d6;
+$color2: #343a40;
+$color3: #c62e65;
+$color4: #95190c;
+$color5: #3A055A;
+
+.heading{
+    margin-top: 10px;
+}
+.blog__feed{
+    margin-top: 10px;
+    padding: 0px 5rem;
+}
+.blog__post{
+    border-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    height: 20vh;
+    background-color: #FFFFFFAA;
+}
+.blog__post:hover{
+    background-color: #FFFFFFBB;
+}
+.preview--reading{
+    height: auto;
+    margin-left: 1rem;
+}
+
+.preview{
+    list-style-type: none;
+}
+.preview__card{
+    object-fit: contain;
+}
+.preview__img{
+    max-width: 100%;
+    max-height: 100%;
+}
+.maxheight{
+    max-height: 100%;
+    text-decoration: none;
+    color: black;
+}
+.preview__title{
+    text-decoration: underline 2px;
+    color: black;
+}
+.preview__title_div h1{
+    margin-bottom: 0px;
+}
+.preview__link{
+    text-decoration: none;
+}
+.preview__link:hover{
+    text-decoration: none;
+}
+.preview__details{
+    position: absolute;
+    bottom: .5rem;
+}
+.preview__author{
+    color: black;
+}
+.preview__author:hover{
+    color: black;
+}
+.preview__color_light{ 
+    color: #555555;
+}
+.preview__smalltext{
+    font-size: small;
+}
+.preview__published{
+    margin-left: 1rem;
+}
+.preview__tags{
+    margin-left: 1rem;
+    padding-bottom: 1rem;
+}
+.preview__tag{
+    padding-right: 1rem;
+}
+.preview__tag:hover{
+    padding-right: 1rem;
+}
+.color5{
+    color: $color5;
+}
+.color5:hover{
+    color: $color5;
+}
+.preview__tag_icon{
+    font-size: 0.8rem;
+    margin-right: 0.1rem;
+}
+
+.post__meta{
+    color: white;
+}
+
+.nolink{
+    color: white;
+}
+.nolink:hover{
+    text-decoration: none;
+    color: white;
+}

@@ -1,43 +1,37 @@
 <template>
   <transition name="post">
-    <article v-if="allReady" class="post">
+    <article v-if="allReady" class="post col-8">
       <header class="post__header">
-        <h2 class="post__title">{{ title }}</h2>
+        <h2 class="post__title"><prismic-rich-text :field="title"/></h2>
 
-        <h3 class="post__meta">by <router-link class="post__author"
-          :to="`/by/${kebabify(author)}`">{{ author }}</router-link>
-          <span class="post__sep"></span>
-          <time>{{ prettyDate(published) }}</time>
-        </h3>
-
-        <blockquote class="post__subtitle">{{ description }}</blockquote>
+        <blockquote class="post__subtitle"><prismic-rich-text :field="description"/></blockquote>
       </header>
 
-      <section class="post__body rte" v-html="content"></section>
+      <section class="post__body rte"><prismic-rich-text :field="content"/></section>
 
       <footer class="post__footer">
-        <vue-disqus v-if="commentsReady" shortname="bnry-de"
-          :key="post" :identifier="post" :url="`https://bnry.de/blog/post/${post}`"/>
+        <Disqus v-if="commentsReady" shortname='bnry-de'/>
       </footer>
     </article>
   </transition>
 </template>
 
 <script>
-import VueDisqus from 'vue-disqus/VueDisqus'
+import { Disqus } from 'vue-disqus'
 import { kebabify, prettyDate } from '../assets/helpers'
+
 export default {
   name: 'blog-post',
   resource: 'BlogPost',
-  components: { VueDisqus },
+  components: { Disqus },
   props: { post: String },
   data() {
     return {
-      title: '',
+      title: [],
       author: '',
-      content: '',
+      content: [],
       published: '',
-      description: '',
+      description: [],
       commentsReady: false,
       ready: false
     }
@@ -51,7 +45,15 @@ export default {
     post(to, from) {
       if (to === from || !this.post) return;
       this.commentsReady = false
-      this.$getResource('post', to)
+      /*this.$getResource('post', to)
+        .then(this.showComments)
+        .then(() => {
+          this.ready = true;
+        });*/
+      this.$prismic.client.getByUID('blog-post', this.post)
+        .then((document) => {
+            this.mergeData(document);
+        })
         .then(this.showComments)
         .then(() => {
           this.ready = true;
@@ -70,6 +72,13 @@ export default {
       setTimeout(() => {
         this.commentsReady = true
       }, 1000)
+    },
+    mergeData(doc) {
+      this.title = doc.data.title;
+      this.author = doc.data.meta[0].author;
+      this.content = doc.data.content;
+      this.published = doc.first_publication_date;
+      this.description = doc.data.meta[0].description;
     }
   },
   mounted() {
@@ -77,11 +86,14 @@ export default {
       this.ready = true;
       return;
     }
-    this.$getResource('post', this.post)
-      .then(this.showComments)
-      .then(() => {
-        this.ready = true;
-      });
+    this.$prismic.client.getByUID('blog-post', this.post)
+        .then((document) => {
+            this.mergeData(document);
+        })
+        .then(this.showComments)
+        .then(() => {
+          this.ready = true;
+        });
   }
 }
 </script>

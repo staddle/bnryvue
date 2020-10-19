@@ -1,37 +1,58 @@
 <template>
-    <transition-group tag="ul" class="blog__feed" name="preview">
-        <li v-for="post in feed" :class="classes" :key="post.id">
-            <router-link :to="'/blog/post/$(post.id)'">
-                <figure class="preview__figure">
-                    <img :src="post.image"/>
-
-                    <transition name="fade">
-                        <figcaption v-if="!reading" class="preview__title">
-                            {{ post.title }}
-                        </figcaption>
-                    </transition>
-                </figure>
-            </router-link>
-
-            <transition name="fade">
-                <aside v-if="!reading" class="preview__details">
-                    <h5 class="preview__meta">
-                        <router-link class="preview__author" :to="'/post/by/${ kebabify(post.author) }'" @click.native="scrollTo(0)">
-                            {{ post.author }}
-                        </router-link>
-
-                        <time class="preview__published">
-                            {{ prettyDate(post.published) }}
-                        </time>
-                    </h5>
-                </aside>
-            </transition>
+    <transition-group tag="ul" name="preview" :class="{'col-2' : reading, 'blog__feed': !reading}">
+        <li v-for="post in posts" :key="post.uid" class="preview">
+            <div :class="classes">
+                <router-link class="preview__link" :to="`/blog/${post.uid}`">
+                    <div class="preview__card row" id="triggerblock" ref="triggerblock">
+                        <div id="triggerImg" ref="triggerImg" :class="{'col-2' : !reading, maxheight : !reading}">
+                            <prismic-image class="preview__img" :field="post.data.image"/>
+                        </div>
+                        <div class="col-10 maxheight" v-if="!reading">
+                            <div class="preview__title">
+                                <prismic-rich-text class="preview__title_div" :field="post.data.title"/>
+                            </div>
+                            <div class="preview__tags color5">
+                                <span TODO:to="`/blog/tag/${tag}`" class="preview__tag" v-for="tag of post.tags" :key="tag"><font-awesome-icon icon="tag" class="preview__tag_icon"></font-awesome-icon>{{tag}}</span>
+                            </div>
+                            <div class="preview__desc">
+                                <prismic-rich-text :field="post.data.meta[0].description"/>
+                            </div>
+                            <div class="preview__details">
+                                <h5 class="preview__meta">
+                                    <span class="preview__smalltext preview__color_light">by </span>
+                                    <router-link class="preview__author" :to="`/blog/by/${ post.data.meta[0].author }`" @click.native="scrollTo(0)" v-html="`${post.data.meta[0].author}`"></router-link>
+                                    <time class="preview__published preview__color_light">
+                                        <span class="preview__smalltext">on </span>{{ prettyDate(post.first_publication_date) }}
+                                        <span v-if="prettyDate(post.first_publication_date)!=prettyDate(post.last_publication_date)"><span class="preview__smalltext">last updated on </span>{{ prettyDate(post.last_publication_date) }}</span>
+                                    </time>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </router-link>
+            </div>
+            <div v-if="reading" class="post__meta">
+                <div class="preview__tags">
+                    <span TODO:to="`/blog/tag/${tag}`" class="preview__tag" v-for="tag of post.tags" :key="tag"><font-awesome-icon icon="tag" class="preview__tag_icon"></font-awesome-icon>{{tag}}</span>
+                </div>
+                <div>
+                    published on {{prettyDate(post.first_publication_date)}}
+                </div>
+                <div>
+                    last updated on {{prettyDate(post.last_publication_date)}}
+                </div>
+                <div>
+                    by {{post.data.meta[0].author}}
+                </div>
+            </div>
         </li>
     </transition-group>
 </template>
 
 <script>
 import { scrollTo, kebabify, prettyDate } from '../assets/helpers'
+import { ScrollScene, addIndicators } from 'scrollscene'
+import { gsap } from 'gsap'
 
 export default {
     name: 'blog-feed',
@@ -39,9 +60,10 @@ export default {
     props: {filters: Object },
     
     data() {
-        return { posts : [] }
+        return { 
+            posts : []
+        }
     },
-
     computed: {
         reading() { return this.filters.post },
         classes() {
@@ -67,6 +89,31 @@ export default {
         }
     },
     methods: {scrollTo, kebabify, prettyDate },
-    beforeMount() { this.$getResource('feed') }
+    beforeMount() { 
+        this.$prismic.client.query(
+            this.$prismic.Predicates.at('document.type', 'blog-post'),
+            { orderings: '[my.blog-post.meta.published desc]'/*, pageSize: 10, page: this.page*/}
+        ).then((response) => {
+            this.posts = response.results;
+        })
+    },
+    mounted() {
+        //const imgTL = gsap.timeline({})
+
+        //imgTL.to("#triggerblock", {duration: 1, css: {"position": "fixed", "left": "5rem"}})
+
+        //won't work unless you get $refs in a state after v-for is fired else refs can't access elements generated by v-for bindings
+        /*const triggerEl = this.$refs.triggerblock.$el
+
+        const sceneLinks = new ScrollScene({
+            triggerElement: triggerEl, 
+            toggle: {
+                element: this.$refs.triggerImg,
+                className: 'blog__side'
+            }
+        });
+        //sceneLinks.Scene.setClassToggle('#triggerImg', "blog__side")
+        sceneLinks.Scene.addIndicators({});*/
+    }
 }
 </script>

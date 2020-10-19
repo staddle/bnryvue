@@ -87,7 +87,7 @@ export default {
         var transX = fixedX - rect.right;
         var transY = fixedY - rect.top;
         // eslint-disable-next-line
-        console.log(transX + ' ' + transY);
+        //console.log(transX + ' ' + transY);
         nameTL.to("#bigName", {
             duration: .5,
             opacity: 0
