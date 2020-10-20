@@ -40,7 +40,7 @@
   z-index: 5;
 }
 
-.router-link-active {
+.nav-link.router-link-active {
   border-bottom: 2px solid #9ad4d6;
 }
 

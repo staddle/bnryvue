@@ -1,6 +1,9 @@
 <template>
     <div>
         <div class="container">
+            <p>
+                Infinity icon on blog title made by <a href="https://www.flaticon.com/authors/google" title="Google">Google</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+            </p>
             <br>
             <div class='impressum'><h1 style="text-decoration: underline">Impressum</h1><p>Angaben gemäß § 5 TMG</p><p>Niclas Rosteck <br> 
             Bergmannstr. 52a<br> 

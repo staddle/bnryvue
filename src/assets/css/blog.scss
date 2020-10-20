@@ -15,6 +15,21 @@ $easings:(
     @return map-get($easings, $fn);
 }
 
+.blog__title{
+    font-family: "Helvetica Neue",sans-serif;
+    letter-spacing: .1rem;
+    font-size: 5rem;
+}
+.blog__titlesvg{
+    height: 8rem;
+    padding-bottom: 1rem;
+    padding-left: .2rem;
+    padding-right: .2rem;
+}
+.blog__divider{
+    margin-top: -2rem;
+}
+
 .heading{
     margin-top: 10px;
 }
@@ -26,6 +41,7 @@ $easings:(
     color: white;
     height: 15rem;
     background-color: rgba($color: $color2, $alpha: 0.8);
+    transition: all .1s ease-in;
 }
 .blog__post:hover{
     background-color: rgba($color: $color2, $alpha: 0.9);
@@ -89,16 +105,34 @@ $easings:(
     padding-bottom: 1rem;
 }
 .preview__tag{
-    padding-right: 1rem;
+    color: white;
+    margin-right: .5rem;
+    text-decoration: none;
+    transition: all 0.2s ease-in;
+    
+    padding: 5px;
 }
 .preview__tag:hover{
-    padding-right: 1rem;
+    color: white;
+    margin-right: .5rem;
+    text-decoration: none;
 }
 .color5{
     color: $color1;
+    border-radius: 5px;
+    border-color: rgba($color: $color1, $alpha: 0);
+    border-style: solid;
+    border-width: 1px;
+    background-color: rgba($color: $color1, $alpha: 0);
+    transition: all 0.2s ease-in-out;
 }
 .color5:hover{
-    color: $color1;
+    color: $color5;
+    border-radius: 5px;
+    border-color: rgba($color: $color1, $alpha: 0);
+    border-style: solid;
+    border-width: 1px;
+    background-color: rgba($color: $color1, $alpha: 1);
 }
 .preview__tag_icon{
     font-size: 0.8rem;

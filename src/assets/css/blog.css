@@ -1,3 +1,20 @@
+.blog__title {
+  font-family: "Helvetica Neue",sans-serif;
+  letter-spacing: .1rem;
+  font-size: 5rem;
+}
+
+.blog__titlesvg {
+  height: 8rem;
+  padding-bottom: 1rem;
+  padding-left: .2rem;
+  padding-right: .2rem;
+}
+
+.blog__divider {
+  margin-top: -2rem;
+}
+
 .heading {
   margin-top: 10px;
 }
@@ -11,6 +28,8 @@
   color: white;
   height: 15rem;
   background-color: rgba(52, 58, 64, 0.8);
+  -webkit-transition: all .1s ease-in;
+  transition: all .1s ease-in;
 }
 
 .blog__post:hover {
@@ -94,19 +113,38 @@
 }
 
 .preview__tag {
-  padding-right: 1rem;
+  color: white;
+  margin-right: .5rem;
+  text-decoration: none;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  padding: 5px;
 }
 
 .preview__tag:hover {
-  padding-right: 1rem;
+  color: white;
+  margin-right: .5rem;
+  text-decoration: none;
 }
 
 .color5 {
   color: #9ad4d6;
+  border-radius: 5px;
+  border-color: rgba(154, 212, 214, 0);
+  border-style: solid;
+  border-width: 1px;
+  background-color: rgba(154, 212, 214, 0);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .color5:hover {
-  color: #9ad4d6;
+  color: #3A055A;
+  border-radius: 5px;
+  border-color: rgba(154, 212, 214, 0);
+  border-style: solid;
+  border-width: 1px;
+  background-color: #9ad4d6;
 }
 
 .preview__tag_icon {

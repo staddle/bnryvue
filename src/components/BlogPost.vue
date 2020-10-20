@@ -56,6 +56,7 @@ export default {
         })
         .then(this.showComments)
         .then(() => {
+          document.title = this.title[0].text + ' - MOONLVND';
           this.ready = true;
         });
     }

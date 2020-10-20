@@ -11,8 +11,8 @@
                             <div class="preview__title">
                                 <prismic-rich-text class="preview__title_div" :field="post.data.title"/>
                             </div>
-                            <div class="preview__tags color5">
-                                <span TODO:to="`/blog/tag/${tag}`" class="preview__tag" v-for="tag of post.tags" :key="tag"><font-awesome-icon icon="tag" class="preview__tag_icon"></font-awesome-icon>{{tag}}</span>
+                            <div class="preview__tags">
+                                <router-link :to="`/blog/tag/${tag}`" class="preview__tag color5" v-for="tag of post.tags" :key="tag"><font-awesome-icon icon="tag" class="preview__tag_icon"></font-awesome-icon>{{tag}}</router-link>
                             </div>
                             <div class="preview__desc">
                                 <prismic-rich-text :field="post.data.meta[0].description"/>
@@ -36,7 +36,7 @@
                     <span class="post__metasmall"><prismic-rich-text :field="post.data.imagesource"/></span> 
                 </div>
                 <div class="preview__tags post__tags">
-                    <span TODO:to="`/blog/tag/${tag}`" class="preview__tag" v-for="tag of post.tags" :key="tag"><font-awesome-icon icon="tag" class="preview__tag_icon"></font-awesome-icon>{{tag}}</span>
+                    <router-link :to="`/blog/tag/${tag}`" class="preview__tag" v-for="tag of post.tags" :key="tag"><font-awesome-icon icon="tag" class="preview__tag_icon"></font-awesome-icon>{{tag}}</router-link>
                 </div>
                 <div class="post__firstdate">
                     <span class="post__metasmall">published: </span>{{prettyDate(post.first_publication_date)}}
@@ -79,7 +79,8 @@ export default {
         feed() {
             const filterBy = { //to add more filters simply append new method here ↓
                 post: (filter, {id}) => filter === id,
-                author: (filter, {author}) => filter === this.kebabify(author)
+                author: (filter, {author}) => filter === author,
+                tag: (filter, {tag}) => filter === tag
             }
 
             if(!Object.keys(this.filters).length) return this.posts
@@ -93,12 +94,28 @@ export default {
     },
     methods: {scrollTo, kebabify, prettyDate },
     beforeMount() { 
-        this.$prismic.client.query(
-            this.$prismic.Predicates.at('document.type', 'blog-post'),
-            { orderings: '[my.blog-post.meta.published desc]'/*, pageSize: 10, page: this.page*/}
-        ).then((response) => {
-            this.posts = response.results;
-        })
+        if(this.filters.author){
+            this.$prismic.client.query(
+                [this.$prismic.Predicates.at('document.type', 'blog-post'), this.$prismic.Predicates.at('my.blog-post.meta.author', this.filters.author)],
+                { orderings: '[my.blog-post.meta.published desc]'/*, pageSize: 10, page: this.page*/}
+            ).then((response) => {
+                this.posts = response.results;
+            })
+        }else if(this.filters.tag){
+            this.$prismic.client.query(
+                [this.$prismic.Predicates.at('document.type', 'blog-post'), this.$prismic.Predicates.at('document.tags', [this.filters.tag])],
+                { orderings: '[my.blog-post.meta.published desc]'/*, pageSize: 10, page: this.page*/}
+            ).then((response) => {
+                this.posts = response.results;
+            })
+        }else{
+            this.$prismic.client.query(
+                this.$prismic.Predicates.at('document.type', 'blog-post'),
+                { orderings: '[my.blog-post.meta.published desc]'/*, pageSize: 10, page: this.page*/}
+            ).then((response) => {
+                this.posts = response.results;
+            })
+        }
     },
     mounted() {
         //const imgTL = gsap.timeline({})

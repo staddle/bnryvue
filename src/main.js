@@ -11,7 +11,7 @@ import ValorantParty from './components/ValorantParty.vue'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import PortalVue from 'portal-vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCoffee, faTag } from '@fortawesome/free-solid-svg-icons'
+import { faCoffee, faTag} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import axios from 'axios'
 import VueDisqus from 'vue-disqus'
@@ -61,15 +61,22 @@ const router = new VueRouter({
   base: __dirname,
   routes: [
     {path: '/', redirect: '/home'},
-    {path: '/home', component: Home},
-    {path: '/projects', component: Projects},
-    {path: '/about', component: About},
-    {path: '/imprint', component: Imprint},
-    {path: '/valorant', component: ValorantParty},
-    {path: '/blog', name: 'feed', component: Blog},
-    {path: '/blog/:post', name: 'post', props: true, component: Blog},
-    {path: '/blog/by/:author', name: 'author', props: true, component: Blog}
+    {path: '/home', component: Home , meta: { title: route => { return 'staddle' } }},
+    {path: '/projects', component: Projects, meta: { title: route => { return 'BNRY - Projects' } }},
+    {path: '/about', component: About, meta: { title: route => { return 'BNRY - About' } }},
+    {path: '/imprint', component: Imprint, meta: { title: route => { return 'BNRY - Imprint' } }},
+    {path: '/valorant', component: ValorantParty, meta: { title: route => { return 'Ultimate Valorantery' } }},
+    {path: '/blog', name: 'feed', component: Blog, meta: { title: route => { return 'MOONLVND' } }},
+    {path: '/blog/:post', name: 'post', props: true, component: Blog, meta: { title: route => { return 'MOONLVND' } }},
+    {path: '/blog/by/:author', name: 'author', props: true, component: Blog, meta: { title: route => { return 'MOONLVND' } }},
+    {path: '/blog/tag/:tag', name: 'tag', props: true, component: Blog, meta: { title: route => { return 'MOONLVND' } }}
   ]
+})
+
+router.afterEach((to, from) => { //change document title for every route change
+  Vue.nextTick(() => {
+    document.title = to.meta.title(to)
+  })
 })
 
 new Vue({
