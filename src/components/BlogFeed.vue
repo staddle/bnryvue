@@ -1,13 +1,13 @@
 <template>
-    <transition-group tag="ul" name="preview" :class="{'col-2' : reading, 'blog__feed': !reading}">
+    <transition-group tag="ul" name="preview-appear" :class="{'col-2' : reading, 'blog__feed': !reading}">
         <li v-for="post in posts" :key="post.uid" class="preview">
             <div :class="classes">
                 <router-link class="preview__link" :to="`/blog/${post.uid}`">
                     <div class="preview__card row" id="triggerblock" ref="triggerblock">
-                        <div id="triggerImg" ref="triggerImg" :class="{'col-2' : !reading, maxheight : !reading}">
+                        <div id="triggerImg" ref="triggerImg" :class="{'col-md-2 col-sm-4 col-4 maxheight' : !reading}">
                             <prismic-image class="preview__img" :field="post.data.image"/>
                         </div>
-                        <div class="col-10 maxheight" v-if="!reading">
+                        <div class="col-md-10 col-sm-8 col-8 maxheight" v-if="!reading">
                             <div class="preview__title">
                                 <prismic-rich-text class="preview__title_div" :field="post.data.title"/>
                             </div>
@@ -32,17 +32,20 @@
                 </router-link>
             </div>
             <div v-if="reading" class="post__meta">
-                <div class="preview__tags">
+                <div class="post__source">
+                    <span class="post__metasmall"><prismic-rich-text :field="post.data.imagesource"/></span> 
+                </div>
+                <div class="preview__tags post__tags">
                     <span TODO:to="`/blog/tag/${tag}`" class="preview__tag" v-for="tag of post.tags" :key="tag"><font-awesome-icon icon="tag" class="preview__tag_icon"></font-awesome-icon>{{tag}}</span>
                 </div>
-                <div>
-                    published on {{prettyDate(post.first_publication_date)}}
+                <div class="post__firstdate">
+                    <span class="post__metasmall">published: </span>{{prettyDate(post.first_publication_date)}}
                 </div>
-                <div>
-                    last updated on {{prettyDate(post.last_publication_date)}}
+                <div class="post__lastdate" v-if="prettyDate(post.first_publication_date)!=prettyDate(post.last_publication_date)">
+                    <span class="post__metasmall">updated: </span>{{prettyDate(post.last_publication_date)}}
                 </div>
-                <div>
-                    by {{post.data.meta[0].author}}
+                <div class="post__author">
+                    <span class="post__metasmall">by: </span>{{post.data.meta[0].author}}
                 </div>
             </div>
         </li>
