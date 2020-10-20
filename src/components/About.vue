@@ -1,6 +1,6 @@
 <template>
     <div>
-        This is about me :)
+        <h1 class="text-center m-5">This is about me (: content following soon(tm)</h1>
     </div>
 </template>
 

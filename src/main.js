@@ -8,6 +8,7 @@ import Imprint from './components/Imprint.vue'
 import Valorantery from './components/Valorantery.vue'
 import Blog from './components/Blog.vue'
 import ValorantParty from './components/ValorantParty.vue'
+import WIP from './components/WIP.vue'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import PortalVue from 'portal-vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -65,7 +66,8 @@ const router = new VueRouter({
     {path: '/projects', component: Projects, meta: { title: route => { return 'BNRY - Projects' } }},
     {path: '/about', component: About, meta: { title: route => { return 'BNRY - About' } }},
     {path: '/imprint', component: Imprint, meta: { title: route => { return 'BNRY - Imprint' } }},
-    {path: '/valorant', component: ValorantParty, meta: { title: route => { return 'Ultimate Valorantery' } }},
+    //{path: '/valorant', component: ValorantParty, meta: { title: route => { return 'Ultimate Valorantery' } }},
+    {path: '/valorant', component: WIP, meta: { title: route => { return 'Ultimate Valorantery' } }},
     {path: '/blog', name: 'feed', component: Blog, meta: { title: route => { return 'MOONLVND' } }},
     {path: '/blog/:post', name: 'post', props: true, component: Blog, meta: { title: route => { return 'MOONLVND' } }},
     {path: '/blog/by/:author', name: 'author', props: true, component: Blog, meta: { title: route => { return 'MOONLVND' } }},
