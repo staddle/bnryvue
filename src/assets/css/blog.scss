@@ -15,107 +15,122 @@ $easings:(
     @return map-get($easings, $fn);
 }
 
-.blog__title{
-    font-family: "Helvetica Neue",sans-serif;
-    letter-spacing: .1rem;
-    font-size: 5rem;
-}
-.blog__titlesvg{
-    height: 8rem;
-    padding-bottom: 1rem;
-    padding-left: .2rem;
-    padding-right: .2rem;
-}
-.blog__divider{
-    margin-top: -2rem;
-}
-
-.heading{
-    margin-top: 10px;
-}
-.blog__feed{
-    margin-top: 10px;
-    padding: 0px 5rem;
-}
-.blog__post{
-    color: white;
-    height: 15rem;
-    background-color: rgba($color: $color2, $alpha: 0.8);
-    transition: all .1s ease-in;
-}
-.blog__post:hover{
-    background-color: rgba($color: $color2, $alpha: 0.9);
-}
-.preview--reading{
-    height: auto;
-    margin-left: 2rem;
+.blog{
+    &__title{
+        font-family: "Helvetica Neue",sans-serif;
+        letter-spacing: .1rem;
+        font-size: 5rem;
+    }
+    &__titlesvg{
+        height: 8rem;
+        padding-bottom: 1rem;
+        padding-left: .2rem;
+        padding-right: .2rem;
+    }
+    &__divider{
+        margin-top: -2rem;
+    }
+    &__feed{
+        margin-top: 10px;
+        //padding: 0px 5rem;
+    }
+    &__post{
+        color: white;
+        height: 15rem;
+        background-color: rgba($color: $color2, $alpha: 0.8);
+        transition: all .1s ease-in;
+    }
+    &__post:hover{
+        background-color: rgba($color: $color2, $alpha: 0.9);
+    }
+    &__list{
+        padding-left: 0px;
+    }
 }
 
 .preview{
     list-style-type: none;
-}
-.preview__card{
-    object-fit: contain;
-    height: 100%;
-}
-.preview__img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.maxheight{
-    text-decoration: none;
-    color: white;
-    max-height: 100%;
-}
-.preview__title{
-    text-decoration: underline 2px;
-    color: white;
-}
-.preview__title_div h1{
-    margin-bottom: 0px;
-}
-.preview__link{
-    text-decoration: none;
-}
-.preview__link:hover{
-    text-decoration: none;
-}
-.preview__details{
-    position: absolute;
-    bottom: .5rem;
-}
-.preview__author{
-    color: white;
-}
-.preview__author:hover{
-    color: white;
-}
-.preview__color_light{ 
-    color: #aaaaaa;
-}
-.preview__smalltext{
-    font-size: small;
-}
-.preview__published{
-    margin-left: 1rem;
-}
-.preview__tags{
-    margin-left: 1rem;
-    padding-bottom: 1rem;
-}
-.preview__tag{
-    color: white;
-    margin-right: .5rem;
-    text-decoration: none;
-    transition: all 0.2s ease-in;
+
+    &__card{
+        object-fit: contain;
+        height: 100%;
+    }
+    &__img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
     
-    padding: 5px;
-}
-.preview__tag:hover{
-    color: white;
-    margin-right: .5rem;
-    text-decoration: none;
+    &__title{
+        text-decoration: underline 2px;
+        color: white;
+    }
+    &__title_div h1{
+        margin-bottom: 0px;
+    }
+    &__link{
+        text-decoration: none;
+    }
+    &__link:hover{
+        text-decoration: none;
+    }
+    &__details{
+        position: absolute;
+        bottom: .5rem;
+    }
+    &__author{
+        color: white;
+    }
+    &__author:hover{
+        color: white;
+    }
+    &__color_light{ 
+        color: #aaaaaa;
+    }
+    &__smalltext{
+        font-size: small;
+    }
+    &__published{
+        margin-left: 1rem;
+    }
+    &__tags{
+        margin-left: 1rem;
+        padding-bottom: 1rem;
+    }
+    &__tag{
+        color: white;
+        margin-right: .5rem;
+        text-decoration: none;
+        transition: all 0.2s ease-in;
+        
+        padding: 5px;
+    }
+    &__tag:hover{
+        color: white;
+        margin-right: .5rem;
+        text-decoration: none;
+    }
+    &__reading{
+        height: auto;
+    }
+    &__tag_icon{
+        font-size: 0.8rem;
+        margin-right: 0.1rem;
+    }
+    &-move { transition: all 550ms cb() }
+    &-enter-active { transition: all 325ms cb(out) 175ms }
+    &-appear-enter-active { transition: all 275ms cb(out) 200ms }
+    &-leave-active {
+        transition: all 225ms cb(in);
+        position: absolute;
+        z-index: -1;
+      }
+    &-enter,
+    &-leave-to,
+    &-appear-enter {
+        opacity: 0;
+        transform: translate3d(0, -2.5rem, 0);
+    }
 }
 .color5{
     color: $color1;
@@ -134,24 +149,6 @@ $easings:(
     border-width: 1px;
     background-color: rgba($color: $color1, $alpha: 1);
 }
-.preview__tag_icon{
-    font-size: 0.8rem;
-    margin-right: 0.1rem;
-}
-.preview-move { transition: all 550ms cb() }
-.preview-enter-active { transition: all 325ms cb(out) 175ms }
-.preview-appear-enter-active { transition: all 275ms cb(out) 200ms }
-.preview-leave-active {
-    transition: all 225ms cb(in);
-    position: absolute;
-    z-index: -1;
-  }
-.preview-enter,
-.preview-leave-to,
-.preview-appear-enter {
-    opacity: 0;
-    transform: translate3d(0, -2.5rem, 0);
-}
 
 .post{
     &-enter-active { transition: all 375ms cb(out) }
@@ -162,20 +159,18 @@ $easings:(
         opacity: 0;
         transform: translate3d(100%, 0, 0);
     }
-}
-.post__meta{
-    color: white;
-    margin-left: 1rem;
-}
-.post__tags{
-    padding-top: 0.2rem;
-}
-.post__firstdate{
 
+    &__meta{
+        color: white;
+    }
+    &__tags{
+        padding-top: 0.2rem;
+    }
+    &__metasmall{
+        font-size: small;
+    }
 }
-.post__metasmall{
-    font-size: small;
-}
+
 .nolink{
     color: white;
 }
@@ -194,5 +189,46 @@ $easings:(
   
       &-leave,
       &-enter-to { opacity: 1}
+    }
+}
+
+.heading{
+    margin-top: 10px;
+}
+
+.maxheight{
+    text-decoration: none;
+    color: white;
+    max-height: 100%;
+}
+
+.feed{
+    &__pagination{
+        justify-content: center;
+        list-style-type: none;
+        display: flex;
+    }
+    &__pagelink{
+        color: white;
+        text-decoration: none;
+        padding: .2rem .5rem;
+        border-color: #ffffff00;
+        border-style: solid;
+        border-width: 1px;
+        transition: all .2s ease-in;
+    }
+    &__pagelink.router-link-active{
+        text-decoration: underline;
+    }
+    &__pagelink.router-link-active.feed__disabledlink{
+        text-decoration: none;
+    }
+    &__pagelink:hover{
+        color: white;
+        border-color: #ffffff;
+    }
+    &__disabledlink{
+        color: #aaaaaa;
+        pointer-events: none;
     }
 }

@@ -203,6 +203,31 @@ body{
     z-index: 0;
 }
 
+.alerttop{
+    margin-right: 1rem;
+    margin-left: auto;
+    margin-top: 1rem;
+    z-index: 3;
+    transition: transform .2s ease-in;
+}
+.alerttop:hover{
+    transform: scale(1.03);
+}
+.alerttop div p{ //cuz prismic does stupid stuff and adds a <p> automatically i have to remove the margin-bot from it or else alert looks trash
+    margin-bottom: 0px;
+}
+.alert-close{
+    padding: .5rem;
+    margin-left: -.5rem;
+    z-index: 4;
+}
+.alertlink{
+    color: initial;
+}
+.alertlink:hover{
+    text-decoration: none;
+    color: initial;
+}
 //Scrollbar:
 ::-webkit-scrollbar{
     width: 8px;

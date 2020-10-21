@@ -1,5 +1,18 @@
 <template>
     <div class="container-fluid fitFull">
+        <div class="alert alert-info alerttop col-lg-3 col-md-4" role="alert" v-if="alertShown">
+            <div class="row">
+                <div class="col-11">   
+                    <router-link :to="alertLink" class="alertlink">
+                        <prismic-rich-text :field="alert"></prismic-rich-text>
+                    </router-link>
+                </div> 
+                <div class="col-1">
+                    <a class="alert-close" v-on:click="alertSwitch()" href="#"><font-awesome-icon icon="times"></font-awesome-icon></a>
+                </div>
+            </div>
+        </div>
+        
         <span id="anchor-top-mid" class="fixed-mid"></span>
         <div class="row">
             <div class="width-100 vertical-center">
@@ -57,6 +70,13 @@ export default {
     components: {
         //Parallax
     },
+    data() {
+        return {
+            alert: null,
+            alertShown: this.$store.state.alertShown,
+            alertLink: '/'
+        }
+    },
     created () {
         //window.addEventListener('scroll', this.handleScroll);
         //window.addEventListener('ready', this.handleScroll);
@@ -64,6 +84,14 @@ export default {
     destroyed () {
         //window.removeEventListener('scroll', this.handleScroll);
         //window.removeEventListener('ready', this.handleScroll);
+    },
+    beforeMount() { 
+        this.$prismic.client.getSingle('homepagenews').then((document) => {
+            if(document.data.enabled){
+                this.alert = document.data.alert;
+                this.alertLink = document.data.link;
+            }
+        });
     },
     mounted () {
         const linksTL = gsap.timeline({paused: true})
@@ -103,6 +131,10 @@ export default {
         })
     },
     methods: {
+        alertSwitch() {
+            this.$store.commit('switchAlert');
+            this.alertShown = this.$store.state.alertShown;
+        }
         /**handleScroll(event){
             var img = this.$refs.parallax1;
             var imgParent = this.$refs.parallax1.parentElement;

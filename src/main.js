@@ -12,10 +12,11 @@ import WIP from './components/WIP.vue'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import PortalVue from 'portal-vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCoffee, faTag} from '@fortawesome/free-solid-svg-icons'
+import { faCoffee, faTag, faTimes} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import axios from 'axios'
 import VueDisqus from 'vue-disqus'
+import Vuex from 'vuex'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -34,8 +35,9 @@ Vue.use(IconsPlugin)
 Vue.use(VueDisqus, {
   shortname: 'bnry-de'
 })
+Vue.use(Vuex)
 
-library.add(faCoffee, faTag)
+library.add(faCoffee, faTag, faTimes)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false
 
@@ -81,7 +83,19 @@ router.afterEach((to, from) => { //change document title for every route change
   })
 })
 
+const store = new Vuex.Store({
+  state: {
+    alertShown : true
+  },
+  mutations: {
+    switchAlert(state) {
+      state.alertShown = ! state.alertShown;
+    }
+  }
+})
+
 new Vue({
   router,
   render: h => h(App),
+  store: store
 }).$mount('#app')

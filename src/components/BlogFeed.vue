@@ -1,55 +1,57 @@
 <template>
-    <transition-group tag="ul" name="preview-appear" :class="{'col-2' : reading, 'blog__feed': !reading}">
-        <li v-for="post in posts" :key="post.uid" class="preview">
-            <div :class="classes">
-                <router-link class="preview__link" :to="`/blog/${post.uid}`">
-                    <div class="preview__card row" id="triggerblock" ref="triggerblock">
-                        <div id="triggerImg" ref="triggerImg" :class="{'col-md-2 col-sm-4 col-4 maxheight' : !reading}">
-                            <prismic-image class="preview__img" :field="post.data.image"/>
+    <div class="blog__feed col-md-10 col-sm-12 mx-auto" v-if="!reading">
+        <transition-group tag="ul" name="preview-appear" class="blog__list">
+            <li v-for="post in posts" :key="post.uid" class="preview">
+                <div :class="classes">
+                    <router-link class="preview__link" :to="`/blog/${post.uid}`">
+                        <div class="preview__card row">
+                            <div class="col-md-2 col-sm-4 col-4 maxheight">
+                                <prismic-image class="preview__img" :field="post.data.image"/>
+                            </div>
+                            <div class="col-md-10 col-sm-8 col-8 maxheight">
+                                <div class="preview__title">
+                                    <prismic-rich-text class="preview__title_div" :field="post.data.title"/>
+                                </div>
+                                <div class="preview__tags">
+                                    <router-link :to="`/blog/tag/${tag}`" class="preview__tag color5" v-for="tag of post.tags" :key="tag"><font-awesome-icon icon="tag" class="preview__tag_icon"></font-awesome-icon>{{tag}}</router-link>
+                                </div>
+                                <div class="preview__desc">
+                                    <prismic-rich-text :field="post.data.meta[0].description"/>
+                                </div>
+                                <div class="preview__details">
+                                    <h5 class="preview__meta">
+                                        <span class="preview__smalltext preview__color_light">by </span>
+                                        <router-link class="preview__author" :to="`/blog/by/${ post.data.meta[0].author }`" @click.native="scrollTo(0)" v-html="`${post.data.meta[0].author}`"></router-link>
+                                        <time class="preview__published preview__color_light">
+                                            <span class="preview__smalltext">on </span>{{ prettyDate(post.first_publication_date) }}
+                                            <span v-if="prettyDate(post.first_publication_date)!=prettyDate(post.last_publication_date)"><span class="preview__smalltext">last updated on </span>{{ prettyDate(post.last_publication_date) }}</span>
+                                        </time>
+                                    </h5>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-10 col-sm-8 col-8 maxheight" v-if="!reading">
-                            <div class="preview__title">
-                                <prismic-rich-text class="preview__title_div" :field="post.data.title"/>
-                            </div>
-                            <div class="preview__tags">
-                                <router-link :to="`/blog/tag/${tag}`" class="preview__tag color5" v-for="tag of post.tags" :key="tag"><font-awesome-icon icon="tag" class="preview__tag_icon"></font-awesome-icon>{{tag}}</router-link>
-                            </div>
-                            <div class="preview__desc">
-                                <prismic-rich-text :field="post.data.meta[0].description"/>
-                            </div>
-                            <div class="preview__details">
-                                <h5 class="preview__meta">
-                                    <span class="preview__smalltext preview__color_light">by </span>
-                                    <router-link class="preview__author" :to="`/blog/by/${ post.data.meta[0].author }`" @click.native="scrollTo(0)" v-html="`${post.data.meta[0].author}`"></router-link>
-                                    <time class="preview__published preview__color_light">
-                                        <span class="preview__smalltext">on </span>{{ prettyDate(post.first_publication_date) }}
-                                        <span v-if="prettyDate(post.first_publication_date)!=prettyDate(post.last_publication_date)"><span class="preview__smalltext">last updated on </span>{{ prettyDate(post.last_publication_date) }}</span>
-                                    </time>
-                                </h5>
-                            </div>
-                        </div>
-                    </div>
-                </router-link>
-            </div>
-            <div v-if="reading" class="post__meta">
-                <div class="post__source">
-                    <span class="post__metasmall"><prismic-rich-text :field="post.data.imagesource"/></span> 
+                    </router-link>
                 </div>
-                <div class="preview__tags post__tags">
-                    <router-link :to="`/blog/tag/${tag}`" class="preview__tag" v-for="tag of post.tags" :key="tag"><font-awesome-icon icon="tag" class="preview__tag_icon"></font-awesome-icon>{{tag}}</router-link>
-                </div>
-                <div class="post__firstdate">
-                    <span class="post__metasmall">published: </span>{{prettyDate(post.first_publication_date)}}
-                </div>
-                <div class="post__lastdate" v-if="prettyDate(post.first_publication_date)!=prettyDate(post.last_publication_date)">
-                    <span class="post__metasmall">updated: </span>{{prettyDate(post.last_publication_date)}}
-                </div>
-                <div class="post__author">
-                    <span class="post__metasmall">by: </span>{{post.data.meta[0].author}}
-                </div>
-            </div>
-        </li>
-    </transition-group>
+            </li>
+        </transition-group>
+        <div class="feed__pages">
+            <ul class="feed__pagination">
+                <li class="feed__pageitem">
+                    <router-link class="feed__pagelink" :to="pageLink('prev')" aria-label="Previous" :class="{'feed__disabledlink' : pageLink('prev')==''}">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </router-link>
+                </li>
+                <li v-for="nmb in range(pages,1)" :key="nmb" class="feed__pageitem"><router-link class="feed__pagelink" :class="{'router-link-active' : nmb == page}" :to="pageLink(nmb)">{{nmb}}</router-link></li>
+                <li class="feed__pageitem">
+                    <router-link class="feed__pagelink" :to="pageLink('next')" aria-label="Previous" :class="{'feed__disabledlink' : pageLink('next')==''}">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </router-link>
+                </li>
+            </ul>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -64,7 +66,12 @@ export default {
     
     data() {
         return { 
-            posts : []
+            posts : [],
+            pages: null,
+            results_per_page: null,
+            page: null,
+            next_page: null,
+            prev_page: null
         }
     },
     computed: {
@@ -73,7 +80,7 @@ export default {
             return {
                 'preview': true,
                 'blog__post': true,
-                'preview--reading': this.reading
+                'preview__reading': this.reading
             }
         },
         feed() {
@@ -92,28 +99,48 @@ export default {
             })
         }
     },
-    methods: {scrollTo, kebabify, prettyDate },
+    methods: {scrollTo, kebabify, prettyDate,
+        range(size, startAt=1) {
+            var arr = [...Array(size).keys()].map(i => i + startAt);
+            return arr;
+        },
+        fillFromResponse(response) {
+            this.posts = response.results;
+            this.pages = response.total_pages;
+            this.results_per_page = response.results_per_page;
+            this.page = response.page;
+            this.next_page = response.next_page;
+            this.prev_page = response.prev_page;
+        },
+        pageLink(page) {
+            if(page == 'prev') return this.page==1 ? '' : {path: this.$route.path, query : { p : this.page - 1}};
+            if(page == 'next') return this.page==this.pages ? '' : {path: this.$route.path, query : { p : this.page + 1}};
+            if(page > 0) return {path: this.$route.path, query : { p : page}};
+            return this.$route.path;
+        }
+    },
     beforeMount() { 
+        var pageq = this.$route.query.p;
         if(this.filters.author){
             this.$prismic.client.query(
                 [this.$prismic.Predicates.at('document.type', 'blog-post'), this.$prismic.Predicates.at('my.blog-post.meta.author', this.filters.author)],
-                { orderings: '[my.blog-post.meta.published desc]'/*, pageSize: 10, page: this.page*/}
+                { orderings: '[my.blog-post.meta.published desc]'/*, pageSize: 10*/, page: pageq ? pageq : 1} 
             ).then((response) => {
-                this.posts = response.results;
+                 this.fillFromResponse(response);
             })
         }else if(this.filters.tag){
             this.$prismic.client.query(
                 [this.$prismic.Predicates.at('document.type', 'blog-post'), this.$prismic.Predicates.at('document.tags', [this.filters.tag])],
-                { orderings: '[my.blog-post.meta.published desc]'/*, pageSize: 10, page: this.page*/}
+                { orderings: '[my.blog-post.meta.published desc]'/*, pageSize: 10*/, page: pageq ? pageq : 1}
             ).then((response) => {
-                this.posts = response.results;
+                this.fillFromResponse(response);
             })
         }else{
             this.$prismic.client.query(
                 this.$prismic.Predicates.at('document.type', 'blog-post'),
-                { orderings: '[my.blog-post.meta.published desc]'/*, pageSize: 10, page: this.page*/}
+                { orderings: '[my.blog-post.meta.published desc]'/*, pageSize: 10*/, page: pageq ? pageq : 1}
             ).then((response) => {
-                this.posts = response.results;
+                 this.fillFromResponse(response);
             })
         }
     },

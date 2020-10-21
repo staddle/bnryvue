@@ -229,6 +229,41 @@ body {
   z-index: 0;
 }
 
+.alerttop {
+  margin-right: 1rem;
+  margin-left: auto;
+  margin-top: 1rem;
+  z-index: 3;
+  -webkit-transition: -webkit-transform .2s ease-in;
+  transition: -webkit-transform .2s ease-in;
+  transition: transform .2s ease-in;
+  transition: transform .2s ease-in, -webkit-transform .2s ease-in;
+}
+
+.alerttop:hover {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+}
+
+.alerttop div p {
+  margin-bottom: 0px;
+}
+
+.alert-close {
+  padding: .5rem;
+  margin-left: -.5rem;
+  z-index: 4;
+}
+
+.alertlink {
+  color: initial;
+}
+
+.alertlink:hover {
+  text-decoration: none;
+  color: initial;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
