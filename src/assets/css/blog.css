@@ -200,6 +200,10 @@
   font-size: small;
 }
 
+.post__left {
+  padding-left: 3rem;
+}
+
 .nolink {
   color: white;
 }

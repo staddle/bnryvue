@@ -1,31 +1,31 @@
 <template>
-  <div>
+  <div v-if="allReady" class="row">
     <transition name="img">
-      <div class="col-2">
+      <div class="col-2 post__left">
         <div>
-            <prismic-image class="preview__img" :field="post.data.image"/>
+            <prismic-image class="preview__img" :field="image"/>
         </div>
         <div class="post__meta">
             <div class="post__source">
-                <span class="post__metasmall"><prismic-rich-text :field="post.data.imagesource"/></span> 
+                <span class="post__metasmall"><prismic-rich-text :field="imagesource"/></span> 
             </div>
             <div class="preview__tags post__tags">
-                <router-link :to="`/blog/tag/${tag}`" class="preview__tag" v-for="tag of post.tags" :key="tag"><font-awesome-icon icon="tag" class="preview__tag_icon"></font-awesome-icon>{{tag}}</router-link>
+                <router-link :to="`/blog/tag/${tag}`" class="preview__tag" v-for="tag of tags" :key="tag"><font-awesome-icon icon="tag" class="preview__tag_icon"></font-awesome-icon>{{tag}}</router-link>
             </div>
             <div class="post__firstdate">
-                <span class="post__metasmall">published: </span>{{prettyDate(post.first_publication_date)}}
+                <span class="post__metasmall">published: </span>{{prettyDate(firstPubDate)}}
             </div>
-            <div class="post__lastdate" v-if="prettyDate(post.first_publication_date)!=prettyDate(post.last_publication_date)">
-                <span class="post__metasmall">updated: </span>{{prettyDate(post.last_publication_date)}}
+            <div class="post__lastdate" v-if="prettyDate(firstPubDate)!=prettyDate(lastPubDate)">
+                <span class="post__metasmall">updated: </span>{{prettyDate(lastPubDate)}}
             </div>
             <div class="post__author">
-                <span class="post__metasmall">by: </span>{{post.data.meta[0].author}}
+                <span class="post__metasmall">by: </span>{{author}}
             </div>
         </div>
       </div>
     </transition>
     <transition name="post">
-      <article v-if="allReady" class="post col-8">
+      <article class="post col-8">
         <header class="post__header">
           <h2 class="post__title"><prismic-rich-text :field="title"/></h2>
 
@@ -58,6 +58,10 @@ export default {
       content: [],
       published: '',
       description: [],
+      image: [],
+      imagesource: [],
+      tags: [],
+      firstPubDate: '',
       commentsReady: false,
       ready: false
     }
@@ -106,6 +110,11 @@ export default {
       this.content = doc.data.content;
       this.published = doc.first_publication_date;
       this.description = doc.data.meta[0].description;
+      this.image = doc.data.image;
+      this.imagesource = doc.data.imagesource;
+      this.tags = doc.tags;
+      this.firstPubDate = doc.first_publication_date;
+      this.lastPubDate = doc.last_publication_date;
     }
   },
   mounted() {

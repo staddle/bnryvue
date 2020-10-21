@@ -16,7 +16,7 @@
           <hr class="divider blog__divider">
         </div>
       </div>
-      <div class="row">
+      <div>
         <blog-feed :filters="filters"/>
         <blog-post :post="post"/>
       </div>
