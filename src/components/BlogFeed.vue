@@ -62,7 +62,6 @@ export default {
     name: 'blog-feed',
     resource: 'BlogFeed',
     props: {filters: Object },
-    
     data() {
         return { 
             posts : [],
@@ -71,6 +70,12 @@ export default {
             page: null,
             next_page: null,
             prev_page: null
+        }
+    },
+
+    watch: { 
+        filters: function(newVal, oldVal) { // watch filters changing if route doesnt change so it doesnt have to be remounted (-> beforeMount() isnt called)
+            this.receiveFeed();
         }
     },
     computed: {
@@ -116,32 +121,35 @@ export default {
             if(page == 'next') return this.page==this.pages ? '' : {path: this.$route.path, query : { p : this.page + 1}};
             if(page > 0) return {path: this.$route.path, query : { p : page}};
             return this.$route.path;
+        },
+        receiveFeed(){
+            var pageq = this.$route.query.p;
+            if(this.filters.author){
+                this.$prismic.client.query(
+                    [this.$prismic.Predicates.at('document.type', 'blog-post'), this.$prismic.Predicates.at('my.blog-post.meta.author', this.filters.author)],
+                    { orderings: '[my.blog-post.meta.published desc]'/*, pageSize: 10*/, page: pageq ? pageq : 1} 
+                ).then((response) => {
+                    this.fillFromResponse(response);
+                })
+            }else if(this.filters.tag){
+                this.$prismic.client.query(
+                    [this.$prismic.Predicates.at('document.type', 'blog-post'), this.$prismic.Predicates.at('document.tags', [this.filters.tag])],
+                    { orderings: '[my.blog-post.meta.published desc]'/*, pageSize: 10*/, page: pageq ? pageq : 1}
+                ).then((response) => {
+                    this.fillFromResponse(response);
+                })
+            }else{
+                this.$prismic.client.query(
+                    this.$prismic.Predicates.at('document.type', 'blog-post'),
+                    { orderings: '[my.blog-post.meta.published desc]'/*, pageSize: 10*/, page: pageq ? pageq : 1}
+                ).then((response) => {
+                    this.fillFromResponse(response);
+                })
+            }
         }
     },
     beforeMount() { 
-        var pageq = this.$route.query.p;
-        if(this.filters.author){
-            this.$prismic.client.query(
-                [this.$prismic.Predicates.at('document.type', 'blog-post'), this.$prismic.Predicates.at('my.blog-post.meta.author', this.filters.author)],
-                { orderings: '[my.blog-post.meta.published desc]'/*, pageSize: 10*/, page: pageq ? pageq : 1} 
-            ).then((response) => {
-                 this.fillFromResponse(response);
-            })
-        }else if(this.filters.tag){
-            this.$prismic.client.query(
-                [this.$prismic.Predicates.at('document.type', 'blog-post'), this.$prismic.Predicates.at('document.tags', [this.filters.tag])],
-                { orderings: '[my.blog-post.meta.published desc]'/*, pageSize: 10*/, page: pageq ? pageq : 1}
-            ).then((response) => {
-                this.fillFromResponse(response);
-            })
-        }else{
-            this.$prismic.client.query(
-                this.$prismic.Predicates.at('document.type', 'blog-post'),
-                { orderings: '[my.blog-post.meta.published desc]'/*, pageSize: 10*/, page: pageq ? pageq : 1}
-            ).then((response) => {
-                 this.fillFromResponse(response);
-            })
-        }
+        this.receiveFeed();
     },
     mounted() {
         //const imgTL = gsap.timeline({})

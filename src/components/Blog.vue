@@ -33,7 +33,8 @@ export default {
   resource: 'Blog',
   props: {
     post: String,
-    author: String
+    author: String,
+    tag: String
   },
 
   data() {
