@@ -37,6 +37,7 @@
 
 .preview {
   list-style-type: none;
+  margin: 1rem 0;
 }
 
 .preview__card {
@@ -107,6 +108,7 @@
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
   padding: 5px;
+  display: inline-block;
 }
 
 .preview__tag:hover {

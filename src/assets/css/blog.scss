@@ -50,6 +50,7 @@ $easings:(
 
 .preview{
     list-style-type: none;
+    margin: 1rem 0;
 
     &__card{
         object-fit: contain;
@@ -102,8 +103,8 @@ $easings:(
         margin-right: .5rem;
         text-decoration: none;
         transition: all 0.2s ease-in;
-        
         padding: 5px;
+        display: inline-block;
     }
     &__tag:hover{
         color: white;

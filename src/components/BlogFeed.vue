@@ -24,7 +24,6 @@
                                         <router-link class="preview__author" :to="`/blog/by/${ post.data.meta[0].author }`" @click.native="scrollTo(0)" v-html="`${post.data.meta[0].author}`"></router-link>
                                         <time class="preview__published preview__color_light">
                                             <span class="preview__smalltext">on </span>{{ prettyDate(post.first_publication_date) }}
-                                            <span v-if="prettyDate(post.first_publication_date)!=prettyDate(post.last_publication_date)"><span class="preview__smalltext">last updated on </span>{{ prettyDate(post.last_publication_date) }}</span>
                                         </time>
                                     </h5>
                                 </div>
