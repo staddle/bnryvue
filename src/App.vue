@@ -52,7 +52,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style>
   @import url('./assets/css/style.css');
   @import url('./assets/css/nav.css');
 

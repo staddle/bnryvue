@@ -19,7 +19,7 @@
               <template v-slot:img>
                 <img
                   class="d-block image-size"
-                  src="../assets/imgs/p2z1.png"
+                  src="../assets/imgs/DiscordBot.png"
                 >
               </template>
             </b-carousel-slide>
@@ -27,7 +27,7 @@
               <template v-slot:img>
                 <img
                   class="d-block image-size"
-                  src="../assets/imgs/p3.png"
+                  src="../assets/imgs/MainPage.png"
                 >
               </template>
             </b-carousel-slide>
@@ -35,23 +35,40 @@
               <template v-slot:img>
                 <img
                   class="d-block image-size"
-                  src="../assets/imgs/p4.png"
+                  src="../assets/imgs/blogp.png"
+                >
+              </template>
+            </b-carousel-slide>
+            <b-carousel-slide>
+              <template v-slot:img>
+                <img
+                  class="d-block image-size"
+                  src="../assets/imgs/InteractiveMap_Trim.gif"
                 >
               </template>
             </b-carousel-slide>
           </b-carousel>
         </div>
+        <div class="margins">
+          <h1 v-text="content[slide].h" class="heading"></h1>
+          <div v-text="content[slide].c"></div>
+        </div>
     </div>
 </template>
 
 <script>
+import pcontent from '../assets/projects.json'
 
 export default {
   name: 'Projects',
+  mounted(){
+    this.content = pcontent;
+  },
   data () {
     return {
       slide: 0,
-      sliding: null
+      sliding: null,
+      content: []
     }
   },
   methods: {
@@ -65,6 +82,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-  @import url(../assets/css/projets.css);
+<style scoped>
+  @import url('../assets/css/projets.css');
 </style>

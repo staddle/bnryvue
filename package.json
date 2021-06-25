@@ -1,5 +1,5 @@
 {
-  "name": "new-project",
+  "name": "bnry",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,42 +8,29 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.14.0",
-    "@fortawesome/fontawesome-svg-core": "^1.2.30",
-    "@fortawesome/free-solid-svg-icons": "^5.14.0",
-    "@fortawesome/vue-fontawesome": "^2.0.0",
-    "@prismicio/vue": "^2.0.7",
-    "axios": "^0.20.0",
-    "bootstrap": "^4.5.2",
-    "bootstrap-vue": "^2.16.0",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/vue-fontawesome": "^2.0.2",
+    "@prismicio/vue": "^2.0.11",
+    "axios": "^0.21.1",
+    "bootstrap-vue": "^2.21.2",
     "core-js": "^3.6.5",
-    "gsap": "^3.5.0",
-    "jquery": "^3.5.1",
-    "portal-vue": "^2.1.7",
-    "prismic-dom": "^2.2.4",
-    "prismic-javascript": "^3.0.2",
-    "scrollmagic": "^2.0.7",
-    "scrollscene": "0.0.15",
+    "gsap": "^3.7.0",
+    "scrollscene": "^0.0.24",
     "scrollto-with-animation": "^3.0.4",
-    "simplebar-vue": "^1.5.1",
-    "vue": "^2.6.12",
+    "vue": "^2.6.11",
     "vue-disqus": "^4.0.1",
     "vue-parallaxy": "^1.1.1",
-    "vue-router": "^3.4.3",
-    "vuex": "^3.5.1"
+    "vue-router": "^3.5.2",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.4",
-    "@vue/cli-plugin-eslint": "^4.5.4",
-    "@vue/cli-service": "^4.5.4",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "imports-loader": "^0.8.0",
-    "node-sass": "^4.14.1",
-    "sass-loader": "^8.0.2",
-    "vue-parallax": "^1.1.1",
-    "vue-template-compiler": "^2.6.12"
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
     "root": true,
@@ -54,15 +41,17 @@
       "plugin:vue/essential",
       "eslint:recommended"
     ],
-    "rules": {
-      "no-unused-vars": "off"
-    },
     "parserOptions": {
       "parser": "babel-eslint"
+    },
+    "rules": {
+      "no-unused-vars": "off",
+      "no-console": "off"
     }
   },
   "browserslist": [
     "> 1%",
-    "last 2 versions"
+    "last 2 versions",
+    "not dead"
   ]
 }

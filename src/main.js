@@ -9,6 +9,9 @@ import Valorantery from './components/Valorantery.vue'
 import Blog from './components/Blog.vue'
 import ValorantParty from './components/ValorantParty.vue'
 import WIP from './components/WIP.vue'
+import Feed from './components/danbooru/Feed.vue'
+import FeedView from './components/danbooru/FeedView.vue'
+import newHome from './components/newHome.vue'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import PortalVue from 'portal-vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -73,7 +76,10 @@ const router = new VueRouter({
     {path: '/blog', name: 'feed', component: Blog, meta: { title: route => { return 'MOONLVND' } }},
     {path: '/blog/:post', name: 'post', props: true, component: Blog, meta: { title: route => { return 'MOONLVND' } }},
     {path: '/blog/by/:author', name: 'author', props: true, component: Blog, meta: { title: route => { return 'MOONLVND' } }},
-    {path: '/blog/tag/:tag', name: 'tag', props: true, component: Blog, meta: { title: route => { return 'MOONLVND' } }}
+    {path: '/blog/tag/:tag', name: 'tag', props: true, component: Blog, meta: { title: route => { return 'MOONLVND' } }},
+    {path: '/danbooru/', name: 'danfeed', component: Feed, meta: {title: route => { return 'Danbooru - Feed' } }},
+    {path: '/danbooru/feed/', name: 'danfeedview', component: FeedView, meta: {title: route => { return 'Danbooru - FeedView' } }},
+    {path: '/newhome', component: newHome}
   ]
 })
 
@@ -85,11 +91,15 @@ router.afterEach((to, from) => { //change document title for every route change
 
 const store = new Vuex.Store({
   state: {
-    alertShown : true
+    alertShown : true,
+    tagShown: false
   },
   mutations: {
     switchAlert(state) {
       state.alertShown = ! state.alertShown;
+    },
+    switchTagShown(state){
+      state.tagShown = !state.tagShown;
     }
   }
 })

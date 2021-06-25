@@ -33,8 +33,7 @@ export default {
   resource: 'Blog',
   props: {
     post: String,
-    author: String,
-    tag: String
+    author: String
   },
 
   data() {
@@ -72,6 +71,6 @@ export default {
 }
 </script>
 
-<style lang="sass">
-@import '../assets/css/blog.css'
+<style>
+@import url('../assets/css/blog.css');
 </style>
