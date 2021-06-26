@@ -15,11 +15,15 @@ import newHome from './components/newHome.vue'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import PortalVue from 'portal-vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCoffee, faTag, faTimes} from '@fortawesome/free-solid-svg-icons'
+import { faCoffee, faLevelUpAlt, faTag, faTimes} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import axios from 'axios'
 import VueDisqus from 'vue-disqus'
 import Vuex from 'vuex'
+import VueContentPlaceholders from 'vue-content-placeholders'
+import FlatSurfaceShader from 'vue-flat-surface-shader'
+import VueDiagonal from "vue-diagonal";
+
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -39,8 +43,11 @@ Vue.use(VueDisqus, {
   shortname: 'bnry-de'
 })
 Vue.use(Vuex)
+Vue.use(VueContentPlaceholders)
+Vue.use(FlatSurfaceShader)
+Vue.component("vue-diagonal", VueDiagonal)
 
-library.add(faCoffee, faTag, faTimes)
+library.add(faCoffee, faTag, faTimes, faLevelUpAlt)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false
 

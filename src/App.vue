@@ -38,7 +38,9 @@
         </ul>
       </div>
     </nav>
-    <router-view></router-view>
+    <scroll-view>
+      <router-view></router-view>
+    </scroll-view>
   </div>
 </template>
 

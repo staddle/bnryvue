@@ -264,6 +264,35 @@ body {
   color: initial;
 }
 
+.diag1 {
+  margin-top: -20vh;
+  z-index: 1;
+}
+
+.arrowrot {
+  rotate: 200deg;
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+  max-height: 3rem;
+}
+
+.diag1move {
+  margin-top: -15vh;
+  padding-left: .7rem;
+  padding-bottom: 10rem;
+}
+
+.scrollfont {
+  font-family: "Helvetica Neue",sans-serif;
+  font-weight: bold;
+  color: #9ad4d6;
+  margin-top: -2rem;
+}
+
+.proj {
+  margin-top: -5.3rem;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }

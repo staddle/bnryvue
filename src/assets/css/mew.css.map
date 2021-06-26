@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,IAAI,CAAA;EACA,KAAK,EAAE,KAAK;CACf",
+    "mappings": "",
     "sources": [
         "mew.scss"
     ],

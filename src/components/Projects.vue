@@ -10,7 +10,7 @@
             indicators
             background="#ababab"
             img-width="100vw"
-            img-height="60vh"
+            img-height="80vh"
             style="text-shadow: 1px 1px 2px #333;"
             @sliding-start="onSlideStart"
             @sliding-end="onSlideEnd"

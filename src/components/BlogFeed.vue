@@ -1,5 +1,12 @@
 <template>
     <div class="blog__feed col-md-10 col-sm-12 mx-auto" v-if="!reading">
+        <content-placeholders v-if="this.posts.length==0" :rounded="true">
+              <content-placeholders-heading />
+              <content-placeholders-text :lines="6" />
+              <br>
+              <content-placeholders-heading />
+              <content-placeholders-text :lines="6" />
+        </content-placeholders>
         <transition-group tag="ul" name="preview-appear" class="blog__list">
             <li v-for="post in posts" :key="post.uid" class="preview">
                 <div :class="classes">
@@ -55,8 +62,6 @@
 
 <script>
 import { scrollTo, kebabify, prettyDate } from '../assets/helpers'
-import { ScrollScene, addIndicators } from 'scrollscene'
-import { gsap } from 'gsap'
 
 export default {
     name: 'blog-feed',

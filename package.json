@@ -18,7 +18,11 @@
     "scrollscene": "^0.0.24",
     "scrollto-with-animation": "^3.0.4",
     "vue": "^2.6.11",
+    "vue-content-placeholders": "^0.2.1",
+    "vue-diagonal": "^0.1.0",
     "vue-disqus": "^4.0.1",
+    "vue-flat-surface-shader": "^1.0.5",
+    "vue-intersect": "^1.1.6",
     "vue-parallaxy": "^1.1.1",
     "vue-router": "^3.5.2",
     "vuex": "^3.6.2"

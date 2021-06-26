@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid fitFull">
-        <div class="alert alert-info alerttop col-lg-3 col-md-4" role="alert" v-if="alertShown">
+        <!--<div class="alert alert-info alerttop col-lg-3 col-md-4" role="alert" v-if="alertShown">
             <div class="row">
                 <div class="col-11">   
                     <router-link :to="alertLink" class="alertlink">
@@ -11,7 +11,15 @@
                     <a class="alert-close" v-on:click="alertSwitch()" href="#"><font-awesome-icon icon="times"></font-awesome-icon></a>
                 </div>
             </div>
-        </div>
+        </div>-->
+        <intersect @enter="changeSpeed = 0.002" @leave="changeSpeed = 0">
+            <flat-surface-shader type="webgl" 
+                                :light="{ambient: '#3A055A', diffuse: '#2a1438', autopilot: 'true'}"
+                                :mesh="{speed: changeSpeed}"
+                                class="shader"
+                                height="120vh">                            
+            </flat-surface-shader>
+        </intersect>
         
         <span id="anchor-top-mid" class="fixed-mid"></span>
         <div class="row">
@@ -46,35 +54,32 @@
                 <div class="col-before"></div>
             </div>
         </div>
-        <!--<div class="percent50" style="position: absolute; top: 100vh">
-            <div class="parallax" style="height: 100%">
-                <img ref='parallax1' class='toparallax' speed='0.2' src='../assets/imgs/pinkfull_transparent.png'>
+        <vue-diagonal :deg="5" background="#343a40" class="diag1">
+            <div class="diag1move" id="diag1"><!--<font-awesome-icon icon="level-up-alt" class="arrowrot"></font-awesome-icon>-->
+                <img src="../assets/imgs/arrow.png" class="arrowrot" id="diag1arrow"> <span class="scrollfont">Scroll</span>
             </div>
-        </div>
-        <img src='../assets/imgs/p2z1.png' class="backgroundimg" style="position: absolute; top: 150vh">
-        <div class="percent50" style="position: absolute; top: 250vh">
-            <div class="parallax" style="height: 100%">
-                <img ref='parallax2' class='toparallax' speed='0.2' src='../assets/imgs/pinkfull_transparent.png'>
-            </div>
-        </div>
-        <img src='../assets/imgs/p3.png' class="backgroundimg" style="position: absolute; top: 300vh">-->
+        </vue-diagonal>
+        <projects class="proj"></projects>
     </div>
 </template>
 
 <script>
 import { ScrollScene, addIndicators } from 'scrollscene'
 import { gsap } from 'gsap'
-import Parallax from 'vue-parallaxy'
+import Projects from './Projects.vue'
+import Intersect from 'vue-intersect'
 
 export default {
     components: {
-        //Parallax
+        Projects,
+        Intersect
     },
     data() {
         return {
             alert: null,
             alertShown: this.$store.state.alertShown,
-            alertLink: '/'
+            alertLink: '/',
+            changeSpeed: 0.002
         }
     },
     created () {
@@ -126,50 +131,65 @@ export default {
             triggerHook: 0.5,
             offset: 300,
             gsap: {
-                timeline: nameTL
+                timeline: nameTL,
             }
         })
+
+        const scrollTL = gsap.timeline({paused: true})
+        scrollTL.to("#diag1", {
+            duration: .5,
+            opacity: 0
+        })
+        
+
+        const sceneDiag = new ScrollScene({
+            triggerElement: '#diag1',
+            triggerHook: 0.5,
+            offset: 200,
+            gsap: {
+                timeline: scrollTL
+            }
+        })
+        
+        const scrollTL1 = gsap.timeline({paused: true})
+        /*scrollTL.to("#diag1", {
+            duration: .5,
+            opacity: 0
+        })*/
+        scrollTL1.to("#diag1arrow", {
+            duration: .5,
+            css: {"rotate": "90deg"}
+        })
+
+        const sceneDiag1 = new ScrollScene({
+            triggerElement: '#diag1',
+            triggerHook: 0.5,
+            offset: 100,
+            gsap: {
+                timeline: scrollTL1
+            }
+        })
+
     },
     methods: {
         alertSwitch() {
             this.$store.commit('switchAlert');
             this.alertShown = this.$store.state.alertShown;
+        },
+        stopAnimation() {
+            this.changeSpeed = 0;
+        },
+        startAnimation(){
+            this.changeSpeed = 0.002;
         }
-        /**handleScroll(event){
-            var img = this.$refs.parallax1;
-            var imgParent = this.$refs.parallax1.parentElement;
-            var speed = parseFloat(img.attributes['speed'].value);
-            var rect = imgParent.getBoundingClientRect();
-            var imgY = rect.top + document.body.scrollTop;
-            var winY = document.body.scrollTop;
-            var winH = parseFloat(getComputedStyle(document.body, null).height.replace("px", ""));
-            var parentH = imgParent.clientHeight;
-
-            // The next pixel to show on screen      
-            var winBottom = winY + winH;
-
-            // If block is shown on screen
-            if (winBottom > imgY && winY < imgY + parentH) {
-                // Number of pixels shown after block appear
-                var imgBottom = ((winBottom - imgY) * speed);
-                // Max number of pixels until block disappear
-                var imgTop = winH + parentH;
-                // Porcentage between start showing until disappearing
-                //var imgPercent = ((imgBottom / imgTop) * 100) + (50 - (speed * 50));
-                var imgPercent = ((imgBottom / imgTop) * 100);
-            }
-            if (imgPercent<0){
-                img.style.transform = 'translate(0%, ' + imgPercent*(-1) + '%)';
-                img.style.top = imgPercent + '%';
-            }else{
-                img.style.top = imgPercent + '%';
-                img.style.transform = 'translate(0%, -' + imgPercent + '%)';
-            }
-        }**/
     }
 }
 </script>
 
 <style>
-
+    .shader{
+    width: 100vw;
+    height: 120vh;
+    margin-top: -3rem;
+  }
 </style>

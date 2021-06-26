@@ -36,6 +36,10 @@
 
         <footer class="post__footer">
           <Disqus v-if="commentsReady" shortname='bnry-de'/>
+          <content-placeholders v-if="!commentsReady" :rounded="true">
+              <content-placeholders-heading :img="true" />
+              <content-placeholders-text :lines="3" />
+          </content-placeholders>
         </footer>
       </article>
     </transition>
