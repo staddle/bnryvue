@@ -17,4 +17,236 @@
   margin-top: 2rem;
   margin-bottom: 5rem;
 }
+
+.text-bg-dark {
+  background-color: #4C5258;
+}
+
+.text-bg-darker {
+  background-color: #343a40;
+}
+
+.text-bg-light {
+  background-color: #F5E9E2;
+  color: #343a40;
+}
+
+.text-bg-lighter {
+  background-color: #A59E9A;
+}
+
+.textcontainer {
+  height: 81vh;
+  width: 30vw;
+}
+
+.textright {
+  position: absolute;
+  right: 0;
+  margin-top: 8rem;
+  z-index: 2;
+}
+
+.textright2 {
+  position: absolute;
+  right: .5rem;
+  margin-top: 8.8rem;
+  z-index: 1;
+}
+
+.imgleft {
+  margin-left: 12vw;
+  margin-right: auto;
+  width: 35%;
+}
+
+.textleft {
+  position: absolute;
+  left: 0;
+  margin-top: 8rem;
+  z-index: 2;
+  text-align: right;
+}
+
+.textleft2 {
+  position: absolute;
+  left: .5rem;
+  margin-top: 8.8rem;
+  z-index: 1;
+}
+
+.imgright {
+  margin-right: 12vw;
+  margin-left: auto;
+  width: 35%;
+}
+
+.textright .containercontent {
+  margin-left: 3rem;
+  margin-top: 2rem;
+  margin-right: 6rem;
+}
+
+.textleft .containercontent {
+  margin-right: 3rem;
+  margin-top: 2rem;
+  margin-left: 6rem;
+}
+
+.textheading {
+  font-size: 4rem;
+  font-weight: bolder;
+}
+
+.textcontent {
+  padding-top: 1rem;
+  font-weight: 500;
+  font-size: large;
+}
+
+.flexcol {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.blogpage {
+  background-color: #F5E9E2;
+}
+
+.websitepage {
+  background-color: #9ad4d6;
+}
+
+.botpage {
+  background-color: #343a40;
+}
+
+.mappage {
+  background-color: #D66BA0;
+}
+
+.websitepageimg {
+  width: 40%;
+}
+
+.botimg {
+  width: 50%;
+  margin-left: 10rem;
+}
+
+.mappageimg {
+  width: 50%;
+  margin-right: 7rem;
+  margin-bottom: 5rem;
+}
+
+.aboutmepage {
+  background-color: #343a40;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.borderpadding {
+  padding: 0 20vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  max-height: 300px;
+}
+
+.portrait {
+  padding-right: 10vh;
+  -o-object-fit: contain;
+     object-fit: contain;
+  display: inline-block;
+  min-width: 0;
+  width: 50%;
+}
+
+.abouttext {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.page {
+  min-height: 100vh;
+}
+
+.contactpage {
+  background-image: url("../imgs/pexels-rostislav-uzunov-5011647.jpg");
+  background-attachment: fixed;
+  background-position-x: -450px;
+  background-position-y: -400px;
+  height: auto;
+}
+
+.contactimg {
+  width: 100%;
+  height: auto;
+  z-index: -1;
+  position: relative;
+}
+
+.contactmebg {
+  background-color: #4C5258;
+  text-align: center;
+}
+
+.contactmecontainer {
+  padding: 8rem 25vw;
+}
+
+.contactheading {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.contactinputs {
+  padding-bottom: 3rem;
+}
+
+.contactinput {
+  background-color: #343a40;
+  color: white;
+  border: none;
+  padding: .5rem;
+  width: 20rem;
+}
+
+.contactinputpad {
+  margin-right: 1rem;
+}
+
+.contactbtn {
+  background-color: #95190c;
+  border: none;
+  color: white;
+  font-weight: 500;
+  font-size: 1.5rem;
+  padding: .5rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.footerpage {
+  background-color: #3A055A;
+  height: 30vh;
+  z-index: 1;
+}
 /*# sourceMappingURL=projets.css.map */

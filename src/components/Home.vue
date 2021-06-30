@@ -17,7 +17,7 @@
                                 :light="{ambient: '#3A055A', diffuse: '#2a1438', autopilot: 'true'}"
                                 :mesh="{speed: changeSpeed}"
                                 class="shader"
-                                height="120vh">                            
+                                height="100vh">                            
             </flat-surface-shader>
         </intersect>
         
@@ -50,16 +50,22 @@
                             </li>
                         </ul>
                     </div>
+                    
                 </div>
                 <div class="col-before"></div>
+                <div class="scroll-down-div">
+                    <font-awesome-icon class="scroll-down" icon="chevron-down"></font-awesome-icon>
+                </div>
             </div>
         </div>
-        <vue-diagonal :deg="5" background="#343a40" class="diag1">
-            <div class="diag1move" id="diag1"><!--<font-awesome-icon icon="level-up-alt" class="arrowrot"></font-awesome-icon>-->
+        <!--<vue-diagonal :deg="5" background="#343a40" class="diag1">
+            <div class="diag1move" id="diag1">
                 <img src="../assets/imgs/arrow.png" class="arrowrot" id="diag1arrow"> <span class="scrollfont">Scroll</span>
             </div>
-        </vue-diagonal>
-        <projects class="proj"></projects>
+        </vue-diagonal>-->
+        <projects></projects>
+        <contact-me></contact-me>
+        <Footer></Footer>
     </div>
 </template>
 
@@ -68,11 +74,15 @@ import { ScrollScene, addIndicators } from 'scrollscene'
 import { gsap } from 'gsap'
 import Projects from './Projects.vue'
 import Intersect from 'vue-intersect'
+import ContactMe from './projectPages/ContactMe.vue'
+import Footer from './Footer.vue'
 
 export default {
     components: {
         Projects,
-        Intersect
+        Intersect,
+        ContactMe,
+        Footer
     },
     data() {
         return {
@@ -135,36 +145,16 @@ export default {
             }
         })
 
-        const scrollTL = gsap.timeline({paused: true})
-        scrollTL.to("#diag1", {
-            duration: .5,
-            opacity: 0
-        })
-        
-
-        const sceneDiag = new ScrollScene({
-            triggerElement: '#diag1',
-            triggerHook: 0.5,
-            offset: 200,
-            gsap: {
-                timeline: scrollTL
-            }
-        })
-        
         const scrollTL1 = gsap.timeline({paused: true})
-        /*scrollTL.to("#diag1", {
+        scrollTL1.to("::-webkit-scrollbar-thumb", {
             duration: .5,
-            opacity: 0
-        })*/
-        scrollTL1.to("#diag1arrow", {
-            duration: .5,
-            css: {"rotate": "90deg"}
+            css: {"background": "#D65108"}
         })
 
         const sceneDiag1 = new ScrollScene({
-            triggerElement: '#diag1',
+            triggerElement: '#blog',
             triggerHook: 0.5,
-            offset: 100,
+            offset: -100,
             gsap: {
                 timeline: scrollTL1
             }
@@ -187,9 +177,5 @@ export default {
 </script>
 
 <style>
-    .shader{
-    width: 100vw;
-    height: 120vh;
-    margin-top: -3rem;
-  }
-</style>
+    
+</style> 

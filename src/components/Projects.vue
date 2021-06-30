@@ -1,84 +1,33 @@
 <template>
     <div>
-        <!--Projects go here--> 
-        <div class="container-fluid container-fix">
-          <b-carousel
-            id="carousel-1"
-            v-model="slide"
-            :interval="100000"
-            controls
-            indicators
-            background="#ababab"
-            img-width="100vw"
-            img-height="80vh"
-            style="text-shadow: 1px 1px 2px #333;"
-            @sliding-start="onSlideStart"
-            @sliding-end="onSlideEnd"
-          >
-            <b-carousel-slide>
-              <template v-slot:img>
-                <img
-                  class="d-block image-size"
-                  src="../assets/imgs/DiscordBot.png"
-                >
-              </template>
-            </b-carousel-slide>
-            <b-carousel-slide>
-              <template v-slot:img>
-                <img
-                  class="d-block image-size"
-                  src="../assets/imgs/MainPage.png"
-                >
-              </template>
-            </b-carousel-slide>
-            <b-carousel-slide>
-              <template v-slot:img>
-                <img
-                  class="d-block image-size"
-                  src="../assets/imgs/blogp.png"
-                >
-              </template>
-            </b-carousel-slide>
-            <b-carousel-slide>
-              <template v-slot:img>
-                <img
-                  class="d-block image-size"
-                  src="../assets/imgs/InteractiveMap_Trim.gif"
-                >
-              </template>
-            </b-carousel-slide>
-          </b-carousel>
-        </div>
-        <div class="margins">
-          <h1 v-text="content[slide].h" class="heading"></h1>
-          <div v-text="content[slide].c"></div>
-        </div>
+        <about-me></about-me>
+        <blog-page id="blog" ref="blogp"></blog-page>
+        <website-page id="website"></website-page>
+        <bot-page id="bot"></bot-page>
+        <map-page id="map"></map-page>
     </div>
 </template>
 
 <script>
-import pcontent from '../assets/projects.json'
+import AboutMe from './projectPages/AboutMe.vue'
+import BlogPage from './projectPages/BlogPage.vue'
+import BotPage from './projectPages/BotPage.vue'
+import MapPage from './projectPages/MapPage.vue'
+import WebsitePage from './projectPages/WebsitePage.vue'
+import Intersect from 'vue-intersect'
 
 export default {
   name: 'Projects',
-  mounted(){
-    this.content = pcontent;
+  components: {
+    BlogPage,
+    AboutMe,
+    WebsitePage,
+    BotPage,
+    MapPage,
   },
-  data () {
-    return {
-      slide: 0,
-      sliding: null,
-      content: []
-    }
+  data ()
+    {
   },
-  methods: {
-      onSlideStart() {
-        this.sliding = true
-      },
-      onSlideEnd() {
-        this.sliding = false
-      }
-    }
 }
 </script>
 

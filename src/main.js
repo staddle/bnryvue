@@ -15,7 +15,7 @@ import newHome from './components/newHome.vue'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import PortalVue from 'portal-vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCoffee, faLevelUpAlt, faTag, faTimes} from '@fortawesome/free-solid-svg-icons'
+import { faCoffee, faChevronDown, faTag, faTimes} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import axios from 'axios'
 import VueDisqus from 'vue-disqus'
@@ -27,9 +27,11 @@ import VueDiagonal from "vue-diagonal";
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-	
+
 import PrismicVue from '@prismicio/vue'
-import linkResolver from './link-resolver'; 
+import linkResolver from './link-resolver';
+import VueTypedJs from 'vue-typed-js'
+
 
 Vue.use(PrismicVue, {
   endpoint: "https://bnryde.cdn.prismic.io/api/v2",
@@ -46,8 +48,9 @@ Vue.use(Vuex)
 Vue.use(VueContentPlaceholders)
 Vue.use(FlatSurfaceShader)
 Vue.component("vue-diagonal", VueDiagonal)
+Vue.use(VueTypedJs)
 
-library.add(faCoffee, faTag, faTimes, faLevelUpAlt)
+library.add(faCoffee, faTag, faTimes, faChevronDown)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false
 
