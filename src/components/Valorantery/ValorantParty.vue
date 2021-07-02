@@ -39,7 +39,7 @@
 <script>
 import Valorantery from "./Valorantery"
 import axios from 'axios'
-import curFuncs from '../assets/curFuncs.js'
+import curFuncs from '../../assets/curFuncs.js'
 
 export default {
   name: 'ValorantParty',

@@ -1,5 +1,6 @@
 <template>
-  <div class="websitepage page flexcol">
+  <div class="websitepage page flexcol" ref="websitepage">
+    
       <div class="textcontainer textleft text-bg-dark">
           <div class="containercontent">
             <h1 class="textheading">This Website</h1>
@@ -10,14 +11,27 @@
             </div>
           </div>
       </div>
-      <div class="textcontainer textleft2 text-bg-darker"></div>
       <img class="imgright websitepageimg" src="../../assets/imgs/undraw_Landing_page_re_6xev.svg">
-  </div>
+      <div class="timeline2-div">
+      <div class="timeline2-top timeline2-topleft-orange-red timeline-red"></div>
+      <div class="timeline2 timeline2-left timeline-red"></div>
+    </div>
+    </div>
 </template>
 
 <script>
-export default {
+import { ScrollScene, addIndicators} from 'scrollscene'
+import { gsap } from 'gsap'
 
+export default {
+  mounted(){
+    let sceneLinks = new ScrollScene({
+            triggerElement: this.$refs.websitepage,
+            triggerHook: 'onLeave',
+            duration: "200%"
+        })
+    sceneLinks.Scene.setPin(this.$refs.websitepage, {pushFollowers: false})
+  }
 }
 </script>
 

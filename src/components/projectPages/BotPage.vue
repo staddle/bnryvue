@@ -1,5 +1,5 @@
 <template>
-  <div class="botpage page flexcol">
+  <div class="botpage page flexcol" ref="botpage">
       <img class="imgleft botimg" src="../../assets/imgs/undraw_Chat_bot_re_e2gj.svg">
       <div class="textcontainer textright text-bg-light">
           <div class="containercontent">
@@ -11,13 +11,26 @@
             </div>
           </div>
       </div>
-      <div class="textcontainer textright2 text-bg-lighter"></div>
+      <div class="timeline2-div">
+        <div class="timeline2-top timeline2-topright-red-orange timeline-orange"></div>
+        <div class="timeline2 timeline2-right timeline-orange"></div>
+      </div>
   </div>
 </template>
 
 <script>
-export default {
+import { ScrollScene, addIndicators} from 'scrollscene'
+import { gsap } from 'gsap'
 
+export default {
+  mounted(){
+    let sceneLinks = new ScrollScene({
+            triggerElement: this.$refs.botpage,
+            triggerHook: 'onLeave',
+            duration: "200%"
+        })
+    sceneLinks.Scene.setPin(this.$refs.botpage, {pushFollowers: false})
+  }
 }
 </script>
 

@@ -12,17 +12,18 @@
                 </div>
             </div>
         </div>-->
-        <intersect @enter="changeSpeed = 0.002" @leave="changeSpeed = 0">
+        <!--<intersect @enter="changeSpeed = 0.002" @leave="changeSpeed = 0">
             <flat-surface-shader type="webgl" 
                                 :light="{ambient: '#3A055A', diffuse: '#2a1438', autopilot: 'true'}"
                                 :mesh="{speed: changeSpeed}"
                                 class="shader"
                                 height="100vh">                            
             </flat-surface-shader>
-        </intersect>
+        </intersect>-->
+        <div class="padthetop"></div>
         
         <span id="anchor-top-mid" class="fixed-mid"></span>
-        <div class="row">
+        <div class="row" id="top">
             <div class="width-100 vertical-center">
                 <div class="col-before"></div>
                 <div id="triggerName" ref="triggerName" class="maindiv">
@@ -58,20 +59,17 @@
                 </div>
             </div>
         </div>
-        <!--<vue-diagonal :deg="5" background="#343a40" class="diag1">
-            <div class="diag1move" id="diag1">
-                <img src="../assets/imgs/arrow.png" class="arrowrot" id="diag1arrow"> <span class="scrollfont">Scroll</span>
-            </div>
-        </vue-diagonal>-->
         <projects></projects>
         <contact-me></contact-me>
-        <Footer></Footer>
+        <Footer class="footercl"></Footer>
     </div>
 </template>
 
 <script>
 import { ScrollScene, addIndicators } from 'scrollscene'
 import { gsap } from 'gsap'
+import { Controller, Scene } from 'scrollmagic'
+
 import Projects from './Projects.vue'
 import Intersect from 'vue-intersect'
 import ContactMe from './projectPages/ContactMe.vue'
@@ -80,9 +78,9 @@ import Footer from './Footer.vue'
 export default {
     components: {
         Projects,
-        Intersect,
+        //Intersect,
         ContactMe,
-        Footer
+        Footer,
     },
     data() {
         return {
@@ -91,14 +89,6 @@ export default {
             alertLink: '/',
             changeSpeed: 0.002
         }
-    },
-    created () {
-        //window.addEventListener('scroll', this.handleScroll);
-        //window.addEventListener('ready', this.handleScroll);
-    },
-    destroyed () {
-        //window.removeEventListener('scroll', this.handleScroll);
-        //window.removeEventListener('ready', this.handleScroll);
     },
     beforeMount() { 
         this.$prismic.client.getSingle('homepagenews').then((document) => {
@@ -144,22 +134,18 @@ export default {
                 timeline: nameTL,
             }
         })
+        //aboutme
+        const aboutmeFade = gsap.timeline({paused: true})
+        aboutmeFade.to('#aboutmetext', {duration: 1, opacity: 1, ease: 'ease'})
 
-        const scrollTL1 = gsap.timeline({paused: true})
-        scrollTL1.to("::-webkit-scrollbar-thumb", {
-            duration: .5,
-            css: {"background": "#D65108"}
+        new ScrollScene({
+                triggerElement: '#aboutme',
+                triggerHook: 0.7,
+                gsap: {
+                    timeline: aboutmeFade
+                },
+                duration: 0
         })
-
-        const sceneDiag1 = new ScrollScene({
-            triggerElement: '#blog',
-            triggerHook: 0.5,
-            offset: -100,
-            gsap: {
-                timeline: scrollTL1
-            }
-        })
-
     },
     methods: {
         alertSwitch() {
@@ -177,5 +163,5 @@ export default {
 </script>
 
 <style>
-    
+    @import url('../assets/css/projets.css');
 </style> 

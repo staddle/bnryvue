@@ -13,7 +13,7 @@
           <router-link class="nav-link nav-active-line" to="/">Home</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link" to="/projects">Projects</router-link>
+          <router-link class="nav-link" to="{name: '/home', hash: '#aboutme'}">Projects</router-link>
         </li>
         <li class="nav-item">
           <router-link class="nav-link" to="/about">About</router-link>

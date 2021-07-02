@@ -4,6 +4,7 @@ body {
   font-family: Roboto,monospace;
   color: white;
   overflow-x: hidden;
+  z-index: 1;
 }
 
 .color-secondary {

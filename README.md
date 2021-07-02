@@ -1,4 +1,5 @@
 # BNRY.de VUE PROJECT
+Git repository of the Vue.JS code to https://www.bnry.de
 
 ## Project setup
 ```

@@ -1,5 +1,24 @@
 @import 'colors';
 
+html{
+    //scroll-snap-type: y proximity;
+}
+
+.page{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    //margin-bottom: 100vh;
+    scroll-snap-align: start;
+}
+.padthetop{
+    height: 100vh;
+    scroll-snap-align: start;
+}
+.footercl{
+    scroll-snap-align: end;
+}
+
 .image-size{
     width: 100vw;
     height: 80vh;
@@ -33,18 +52,106 @@
     height: 81vh;
     width: 30vw;
 }
+.textcontainer.text-bg-dark.textright{
+    box-shadow: -.5rem .8rem $color_gray;
+    //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.45);
+}
+.textcontainer.text-bg-dark.textleft{
+    box-shadow: .5rem .8rem $color_gray;
+}
+.textcontainer.text-bg-light.textright{
+    box-shadow: -.5rem .8rem #A59E9A;
+}
+.textcontainer.text-bg-light.textleft{
+    box-shadow: .5rem .8rem #A59E9A;
+}
+
+.timeline2{
+    position: relative;
+    align-self: end;
+    width: 3rem;
+    height: 100vh;
+}
+
+.timeline2-top{
+    position: relative;
+    top:0;
+    border: 0 solid;
+    height: 2rem;
+    margin: 0 2.8rem;
+    border-bottom: .2rem solid;
+}
+.timeline2-topleft-orange-red{
+    border-right: .2rem solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to bottom, $color_orange 0%, $color_red 100%);
+}
+.timeline2-topright-red-orange{
+    border-left: .2rem solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to bottom, $color_red 0%, $color_orange 100%);
+}
+.timeline2-topleft-orange-turkis{
+    border-right: .2rem solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to bottom, $color_orange 0%, $color_turkis 100%);
+}
+
+.timeline2-right{
+    float: right;
+    border: 0px;
+    border-left: .2rem solid;
+}
+.timeline2-left{
+    float: left;
+    border: 0px;
+    border-right: .2rem solid;
+}
+.timeline2-div{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.timeline2-start .timeline2-top{
+    border: 0 solid !important;
+}
+.timeline2-start .timeline2.timeline-orange{
+    border-top: .2rem solid $color_orange;
+}
+.timeline2-end .timeline2.timeline-turkis{
+    height: 95vh;
+    border-bottom: .2rem solid $color_turkis;
+}
+
+.timeline-red{
+    border-color: $color_red;
+}
+.timeline-turkis{
+    border-color: $color_turkis;
+}
+.timeline-orange{
+    border-color: $color_orange;
+}
+.timeline-red-orange{
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to bottom, $color_red 90%, $color_orange 100%);
+}
+.timeline-orange-red{
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to bottom, $color_orange 90%, $color_red 100%);
+}
+.timeline-orange-turkis{
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to bottom, $color_orange 90%, $color_turkis 100%);
+}
 
 .textright{
     position: absolute;
     right: 0;
     margin-top: 8rem;
-    z-index: 2;
-}
-.textright2{
-    position: absolute;
-    right: .5rem;
-    margin-top: 8.8rem;
-    z-index: 1;
 }
 .imgleft{
     margin-left: 12vw;
@@ -56,14 +163,7 @@
     position: absolute;
     left: 0;
     margin-top: 8rem;
-    z-index: 2;
     text-align: right;
-}
-.textleft2{
-    position: absolute;
-    left: .5rem;
-    margin-top: 8.8rem;
-    z-index: 1;
 }
 .imgright{
     margin-right: 12vw;
@@ -71,15 +171,21 @@
     width: 35%;
 }
 
+.containercontent{
+    padding-top: 2rem;
+    height: 100%
+}
 .textright .containercontent{
     margin-left: 3rem;
-    margin-top: 2rem;
-    margin-right: 6rem;
+    //margin-top: 2rem;
+    padding-right: 3rem;
+    margin-right: 3rem;
 }
 .textleft .containercontent{
     margin-right: 3rem;
-    margin-top: 2rem;
-    margin-left: 6rem;
+    //margin-top: 2rem;
+    margin-left: 3rem;
+    padding-left: 3rem;
 }
 .textheading{
     font-size: 4rem;
@@ -127,6 +233,7 @@
     //min-height: 300px;
     padding-top: 2rem;
     padding-bottom: 2rem;
+    scroll-snap-align: center;
 }
 .borderpadding{
     padding: 0 20vw;
@@ -147,9 +254,7 @@
     justify-content: center;
 }
 
-.page{
-    min-height: 100vh;
-}
+
 
 .contactpage{
     background-image: url('../imgs/pexels-rostislav-uzunov-5011647.jpg');
@@ -158,15 +263,10 @@
     background-position-y: -400px;
     height: auto;
 }
-.contactimg{
-    width: 100%;
-    height: auto;
-    z-index: -1;
-    position: relative;
-}
 .contactmebg{
     background-color: #4C5258;
     text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.35);
 }
 .contactmecontainer{
     padding: 8rem 25vw;
@@ -178,13 +278,17 @@
 .contactinputs{
     padding-bottom: 3rem;
 }
-.contactinput{
+.contactinput{  
     background-color: $color_gray;
     color: white;
     border: none;
     padding: .5rem;
     width: 20rem;
 }
+.contactinput:focus{
+    outline: 2px solid $color_red;
+}
+
 .contactinputpad{
     margin-right: 1rem;
 }
@@ -197,9 +301,22 @@
     padding: .5rem 1.5rem;
     margin-bottom: 2rem;
 }
+.contactbtn:focus{
+    outline: 2px solid white;
+}
 
 .footerpage{
     background-color: $color_purple;
     height: 30vh;
-    z-index: 1;
+}
+
+.timelineDot{
+    position: absolute;
+    top: 1.2rem;
+    right: -2rem;
+    border: 1rem solid $color_orange;
+    border-radius: 50%;
+    height: 0;
+    width: 0;
+    z-index: 1000;
 }

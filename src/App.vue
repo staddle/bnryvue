@@ -19,7 +19,7 @@
             <router-link class="nav-link" to="/home">Home</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/projects">Projects</router-link>
+            <router-link class="nav-link" to="/home#blog">Projects</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/blog">Blog</router-link>
@@ -28,7 +28,7 @@
             <router-link class="nav-link" to="/valorant">Ultimate Valorantery</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/about">About</router-link>
+            <router-link class="nav-link" to="/home#aboutme">About</router-link>
           </li>
         </ul>
         <ul class="navbar-nav">
@@ -38,9 +38,7 @@
         </ul>
       </div>
     </nav>
-    <scroll-view>
-      <router-view></router-view>
-    </scroll-view>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -50,7 +48,12 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 import 'bootstrap/dist/js/bootstrap.js';
 
 export default {
-  name: 'app'
+  name: 'app',
+  methods: {
+    scrollToTop() {
+      window.scrollTo(0,0);
+    }
+  }
 }
 </script>
 

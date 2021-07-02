@@ -1,6 +1,6 @@
 <template>
   <div class="aboutmepage">
-      <div class="borderpadding">
+      <div class="borderpadding" id="aboutmetext" style="opacity: 0;">
           <img class="portrait" src="../../assets/imgs/Portrait.png">
           <div class="abouttext">
             <h2 style="padding-bottom: 1rem;" id="testthis">Who am I?</h2>
@@ -17,8 +17,23 @@
 </template>
 
 <script>
-export default {
+import { ScrollScene, addIndicators } from 'scrollscene'
+import { gsap } from 'gsap'
 
+export default {
+  mounted(){
+    const aboutmeFade = gsap.timeline({paused: true})
+    aboutmeFade.to('#aboutmetext', {duration: 1, opacity: 1, ease: 'ease'})
+
+    const sceneLinks = new ScrollScene({
+            triggerElement: '#aboutme',
+            triggerHook: 0.7,
+            gsap: {
+                timeline: aboutmeFade
+            },
+            duration: 0
+        })
+  }
 }
 </script>
 

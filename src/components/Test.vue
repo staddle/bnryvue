@@ -1,6 +1,10 @@
 <template>
-  <div class="blogpage page flexcol" id="blogpage" ref="blogpage">
-      <img class="imgleft" src="../../assets/imgs/undraw_Blog_post_re_fy5x.svg">
+  <div id="app">
+    <section class="panel blue" ref="blue">
+      <b>ONE</b>
+    </section>
+    <div class="blogpage page flexcol" id="blogpage" ref="turqoise">
+      <img class="imgleft" src="../assets/imgs/undraw_Blog_post_re_fy5x.svg">
       <div class="textcontainer textright text-bg-dark">
           <div class="containercontent">
             <h1 class="textheading">My Blog</h1>
@@ -15,29 +19,24 @@
         <div class="timeline2-top timeline-orange"></div>
         <div class="timeline2 timeline2-right timeline-orange"></div>
       </div>
+    </div>
+    <blog-page class="panel green" ref="green"></blog-page>
+    <!--<section class="panel green" ref="green"></section>-->
+    <section class="panel bordeaux" ref="red">
+      <b>FOUR</b>
+    </section>
   </div>
 </template>
 
 <script>
-import { ScrollScene, addIndicators} from 'scrollscene'
-import { gsap } from 'gsap'
 import { Controller, Scene } from 'scrollmagic'
+import BlogPage from './projectPages/BlogPage.vue';
 
 export default {
+    components: {
+        BlogPage
+    },
   mounted(){
-
-    /*let sceneLinks = new ScrollScene({
-            triggerElement: this.$refs.blogpage,
-            triggerHook: 'onLeave',
-            //triggerHook: 0.5,
-            offset: 0,
-            duration: "200%",
-            gsap: {
-              timeline: tl
-            }
-        })
-    //sceneLinks.Scene.setPin(this.$refs.blogpage, {pushFollowers: false})
-    sceneLinks.Scene.addIndicators()*/
 
     var controller = new Controller({
       globalSceneOptions: {
@@ -49,17 +48,59 @@ export default {
     })
 
     new Scene({
-					triggerElement: this.$refs.blogpage
+					triggerElement: this.$refs.blue
 				})
-				.setPin(this.$refs.blogpage, {pushFollowers: false})
+				.setPin(this.$refs.blue, {pushFollowers: false})
+        .addIndicators()
+				.addTo(controller);
+    new Scene({
+					triggerElement: this.$refs.turqoise
+				})
+				.setPin(this.$refs.turqoise, {pushFollowers: false})
+        .addIndicators()
+				.addTo(controller);
+    new Scene({
+					triggerElement: this.$refs.green
+				})
+				.setPin(this.$refs.green, {pushFollowers: false})
+        .addIndicators()
+				.addTo(controller);
+    new Scene({
+					triggerElement: this.$refs.red
+				})
+				.setPin(this.$refs.red, {pushFollowers: false})
+        .addIndicators()
 				.addTo(controller);
   }
 }
 </script>
 
 <style>
-    @import url('../../assets/css/projets.css');
-.long{
-  margin-bottom: 400px;
+@import url('../assets/css/projets.css');
+.blue{
+  background-image: url('../assets/imgs/pexels-anni-roenkae-2693212.jpg');
+}
+.green{
+  background-image: url('../assets/imgs/pexels-anni-roenkae-4793459.jpg');
+}
+.bordeaux{
+  background-image: url('../assets/imgs/pexels-brett-sayles-3653997.jpg');
+}
+.turqoise{
+  background-image: url('../assets/imgs/pexels-rostislav-uzunov-5011647.jpg');
+}
+.panel {
+		height: 100vh;
+		width: 100vw;
+    color: white;
+    text-align: center;
+}
+.panel.green {
+  margin-bottom: 400px
+}
+b{
+  font-size: 15px;
+  position: relative;
+  top: 50%;
 }
 </style>

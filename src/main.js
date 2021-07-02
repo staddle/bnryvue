@@ -5,13 +5,14 @@ import Home from './components/Home.vue'
 import Projects from './components/Projects.vue'
 import About from './components/About.vue'
 import Imprint from './components/Imprint.vue'
-import Valorantery from './components/Valorantery.vue'
+import Valorantery from './components/Valorantery/Valorantery.vue'
 import Blog from './components/Blog.vue'
-import ValorantParty from './components/ValorantParty.vue'
+import ValorantParty from './components/Valorantery/ValorantParty.vue'
 import WIP from './components/WIP.vue'
 import Feed from './components/danbooru/Feed.vue'
 import FeedView from './components/danbooru/FeedView.vue'
 import newHome from './components/newHome.vue'
+import Test from './components/Test.vue'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import PortalVue from 'portal-vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -78,7 +79,7 @@ const router = new VueRouter({
   routes: [
     {path: '/', redirect: '/home'},
     {path: '/home', component: Home , meta: { title: route => { return 'staddle' } }},
-    {path: '/projects', component: Projects, meta: { title: route => { return 'BNRY - Projects' } }},
+    {path: '/projects', component: Home, hash: '#blog', meta: { title: route => { return 'BNRY - Projects' } }},
     {path: '/about', component: About, meta: { title: route => { return 'BNRY - About' } }},
     {path: '/imprint', component: Imprint, meta: { title: route => { return 'BNRY - Imprint' } }},
     //{path: '/valorant', component: ValorantParty, meta: { title: route => { return 'Ultimate Valorantery' } }},
@@ -89,8 +90,19 @@ const router = new VueRouter({
     {path: '/blog/tag/:tag', name: 'tag', props: true, component: Blog, meta: { title: route => { return 'MOONLVND' } }},
     {path: '/danbooru/', name: 'danfeed', component: Feed, meta: {title: route => { return 'Danbooru - Feed' } }},
     {path: '/danbooru/feed/', name: 'danfeedview', component: FeedView, meta: {title: route => { return 'Danbooru - FeedView' } }},
-    {path: '/newhome', component: newHome}
-  ]
+    {path: '/newhome', component: Test}
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    if (to.hash) {
+      // BEFORE:
+      history.pushState({}, null, to.path);
+      return { selector: to.hash }
+
+      //return { el: to.hash }
+    }else{
+      return {x: 0, y: 0}
+    }
+  }
 })
 
 router.afterEach((to, from) => { //change document title for every route change
