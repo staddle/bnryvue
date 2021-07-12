@@ -39,7 +39,7 @@
 <script>
 import Valorantery from "./Valorantery"
 import axios from 'axios'
-import curFuncs from '../../assets/curFuncs.js'
+import curFuncs from '../../assets/curFuncs'
 
 export default {
   name: 'ValorantParty',
@@ -98,5 +98,5 @@ export default {
 </script>
 
 <style>
-  @import url('../assets/css/val.css');
+  @import url('../../assets/css/val.css');
 </style>

@@ -3,7 +3,6 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import Home from './components/Home.vue'
 import Projects from './components/Projects.vue'
-import About from './components/About.vue'
 import Imprint from './components/Imprint.vue'
 import Valorantery from './components/Valorantery/Valorantery.vue'
 import Blog from './components/Blog.vue'
@@ -11,7 +10,6 @@ import ValorantParty from './components/Valorantery/ValorantParty.vue'
 import WIP from './components/WIP.vue'
 import Feed from './components/danbooru/Feed.vue'
 import FeedView from './components/danbooru/FeedView.vue'
-import newHome from './components/newHome.vue'
 import Test from './components/Test.vue'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import PortalVue from 'portal-vue'
@@ -80,7 +78,7 @@ const router = new VueRouter({
     {path: '/', redirect: '/home'},
     {path: '/home', component: Home , meta: { title: route => { return 'staddle' } }},
     {path: '/projects', component: Home, hash: '#blog', meta: { title: route => { return 'BNRY - Projects' } }},
-    {path: '/about', component: About, meta: { title: route => { return 'BNRY - About' } }},
+    {path: '/about', redirect: '/home#aboutme'},
     {path: '/imprint', component: Imprint, meta: { title: route => { return 'BNRY - Imprint' } }},
     //{path: '/valorant', component: ValorantParty, meta: { title: route => { return 'Ultimate Valorantery' } }},
     {path: '/valorant', component: WIP, meta: { title: route => { return 'Ultimate Valorantery' } }},

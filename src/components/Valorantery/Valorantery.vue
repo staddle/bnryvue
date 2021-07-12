@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import prices from '../assets/prices.json'
+import prices from '../../assets/prices.json'
 import axios from 'axios'
 
 export default {
@@ -86,29 +86,29 @@ export default {
       creds -= prim.price;
       this.primary = prim.name;
       if(prim.name != 'No Primary'){
-        this.primarysrc = require('../assets/imgs/Weapons/' + prim.name + '.png');
+        this.primarysrc = require('../../assets/imgs/Weapons/' + prim.name + '.png');
       }else{
-        this.primarysrc = require('../assets/imgs/Weapons/No.svg');
+        this.primarysrc = require('../../assets/imgs/Weapons/No.svg');
       }
       // secondary
       var affordsec = this.canafford(creds, this.prices.secondary);
       var sec = affordsec[Math.floor(Math.random() * affordsec.length)][1];
       creds -= sec.price;
       this.secondary = sec.name;
-      this.secondarysrc = require('../assets/imgs/Weapons/' + sec.name + '.png');
+      this.secondarysrc = require('../../assets/imgs/Weapons/' + sec.name + '.png');
 
       //armor
       if(creds>=this.prices.armor.full.price){
         this.armor = this.prices.armor.full.name;
         creds-=this.prices.armor.full.price;
-        this.armorsrc = require('../assets/imgs/Weapons/Heavy_Shields.png');
+        this.armorsrc = require('../../assets/imgs/Weapons/Heavy_Shields.png');
       }else if(creds>=this.prices.armor.half.price){
         this.armor = this.prices.armor.half.name;
         creds-=this.prices.armor.half.price;
-        this.armorsrc = require('../assets/imgs/Weapons/Light_Shields.png');
+        this.armorsrc = require('../../assets/imgs/Weapons/Light_Shields.png');
       }else{
         this.armor = 'No armor';
-        this.armorsrc = require('../assets/imgs/Weapons/No.svg');
+        this.armorsrc = require('../../assets/imgs/Weapons/No.svg');
       }
     },
     canafford: function(price, object){
@@ -119,5 +119,5 @@ export default {
 </script>
 
 <style>
-  @import url('../assets/css/val.css');
+  @import url('../../assets/css/val.css');
 </style>
