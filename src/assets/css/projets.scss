@@ -320,3 +320,71 @@ html{
     width: 0;
     z-index: 1000;
 }
+
+svg{
+    transform-box: fill-box;
+    z-index: 2;
+}
+
+.Person2Animation1{
+    transform-origin: 550px 300px;
+    transition: all 1s ease;
+}
+.blogimg:hover .Person2Animation1{
+    transform: rotate(30deg);
+}
+
+.Person2Animation2{
+    transform-origin: 580px 240px;
+    transition: all .7s ease;
+}
+.blogimg:hover .Person2Animation2{
+    transform: rotate(20deg);
+}
+
+.BlogAnimation1{
+    transition: all .6s ease;
+    transform-origin: 307px 160px;
+}
+.blogimg:hover .BlogAnimation1{
+    transform: scale(103%) translateY(-20px);
+}
+
+.BlogAnimation2{
+    transition: all 1s ease;
+}
+.blogimg:hover .BlogAnimation2{
+    transform: translateY(-20px)
+}
+
+.Person1Animation1{
+    transition: all 1s ease;
+    transform-origin: 60px 223px;
+}
+.blogimg:hover .Person1Animation1{
+    transform: rotate(10deg);
+}
+
+.Person1Animation2{
+    transition: all 1s ease;
+    transform-origin: 32px 285px;
+}
+.blogimg:hover .Person1Animation2{
+    transform: rotate(-10deg);
+}
+
+.Person1Animation3{
+    transition: all 1s ease;
+    transform-origin: 90px 300px;
+}
+.blogimg:hover .Person1Animation3{
+    transform: rotate(10deg);
+}
+
+.Person1Animation4{
+    transition: all 1s ease;
+    transform-origin: 75px 580px;
+}
+.blogimg:hover .Person1Animation4{
+    transform: rotate(-20deg);
+}

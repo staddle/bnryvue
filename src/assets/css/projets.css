@@ -380,4 +380,103 @@
   width: 0;
   z-index: 1000;
 }
+
+svg {
+  transform-box: fill-box;
+  z-index: 2;
+}
+
+.Person2Animation1 {
+  -webkit-transform-origin: 550px 300px;
+          transform-origin: 550px 300px;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.blogimg:hover .Person2Animation1 {
+  -webkit-transform: rotate(30deg);
+          transform: rotate(30deg);
+}
+
+.Person2Animation2 {
+  -webkit-transform-origin: 580px 240px;
+          transform-origin: 580px 240px;
+  -webkit-transition: all .7s ease;
+  transition: all .7s ease;
+}
+
+.blogimg:hover .Person2Animation2 {
+  -webkit-transform: rotate(20deg);
+          transform: rotate(20deg);
+}
+
+.BlogAnimation1 {
+  -webkit-transition: all .6s ease;
+  transition: all .6s ease;
+  -webkit-transform-origin: 307px 160px;
+          transform-origin: 307px 160px;
+}
+
+.blogimg:hover .BlogAnimation1 {
+  -webkit-transform: scale(103%) translateY(-20px);
+          transform: scale(103%) translateY(-20px);
+}
+
+.BlogAnimation2 {
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.blogimg:hover .BlogAnimation2 {
+  -webkit-transform: translateY(-20px);
+          transform: translateY(-20px);
+}
+
+.Person1Animation1 {
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  -webkit-transform-origin: 60px 223px;
+          transform-origin: 60px 223px;
+}
+
+.blogimg:hover .Person1Animation1 {
+  -webkit-transform: rotate(10deg);
+          transform: rotate(10deg);
+}
+
+.Person1Animation2 {
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  -webkit-transform-origin: 32px 285px;
+          transform-origin: 32px 285px;
+}
+
+.blogimg:hover .Person1Animation2 {
+  -webkit-transform: rotate(-10deg);
+          transform: rotate(-10deg);
+}
+
+.Person1Animation3 {
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  -webkit-transform-origin: 90px 300px;
+          transform-origin: 90px 300px;
+}
+
+.blogimg:hover .Person1Animation3 {
+  -webkit-transform: rotate(10deg);
+          transform: rotate(10deg);
+}
+
+.Person1Animation4 {
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  -webkit-transform-origin: 75px 580px;
+          transform-origin: 75px 580px;
+}
+
+.blogimg:hover .Person1Animation4 {
+  -webkit-transform: rotate(-20deg);
+          transform: rotate(-20deg);
+}
 /*# sourceMappingURL=projets.css.map */
