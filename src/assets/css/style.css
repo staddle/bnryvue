@@ -309,6 +309,40 @@ body {
   text-align: center;
 }
 
+.footer-links-container {
+  margin: auto 0;
+}
+
+.footer-links {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 0;
+  height: 100%;
+}
+
+.footer-a {
+  color: white;
+  text-decoration: none;
+  font-size: large;
+}
+
+.footer-a:hover {
+  color: #e6e6e6;
+  text-decoration: none;
+}
+
+.footer-li {
+  margin: .7rem 0;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }

@@ -263,6 +263,30 @@ body{
     text-align: center;
 }
 
+.footer-links-container{
+    margin: auto 0;
+}
+.footer-links{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0;
+    height: 100%;
+}
+.footer-a{
+    color:white;
+    text-decoration: none;
+    font-size: large;
+}
+.footer-a:hover{
+    color: darken(white, 10%);
+    text-decoration: none;
+}
+.footer-li{
+    margin: .7rem 0;
+}
+
 //Scrollbar:
 ::-webkit-scrollbar{
     width: 8px;

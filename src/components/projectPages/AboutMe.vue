@@ -9,7 +9,7 @@
               You can see my personal projects down below.
               <p></p>
               Apart from programming, I enjoy gaming (obviously) and making music. I mainly play League of Legends in amateur leagues (<a href="https://www.primeleague.gg/de/leagues/teams/112448-davids-salt-miners">link to my team here</a>)
-              and osu! (<a href="https://osu.ppy.sh/users/9329597">my profile here</a>). My music is released on <a href="https://soundcloud.com/moonlvnd">SoundCloud</a>.
+              and osu! (<a class="cleanlink link-purple" href="https://osu.ppy.sh/users/9329597">my profile here</a>). My music is released on <a href="https://soundcloud.com/moonlvnd">SoundCloud</a>.
             </div>
           </div>
         </div>
@@ -38,5 +38,5 @@ export default {
 </script>
 
 <style>
-
+  @import url('../assets/css/projets.css');
 </style>

@@ -9,15 +9,15 @@
                 I am <strong>Niclas</strong>, a software developer from Dresden, Germany. I study computer science at TU Dresden since 2018 and have been working on various projects for the university.
                 You can see my personal projects down below.
                 <p></p>
-                Apart from programming, I enjoy gaming (obviously) and making music. I mainly play League of Legends in amateur leagues (<a href="https://www.primeleague.gg/de/leagues/teams/112448-davids-salt-miners">link to my team here</a>)
-                and osu! (<a href="https://osu.ppy.sh/users/9329597">my profile here</a>). My music is released on <a href="https://soundcloud.com/moonlvnd">SoundCloud</a>.
+                Apart from programming, I enjoy gaming (obviously) and making music. I mainly play League of Legends in <a class="cleanlink link-turkis"  href="https://www.primeleague.gg/de/leagues/teams/112448-davids-salt-miners">amateur leagues</a>
+                and <a class="cleanlink link-turkis" href="https://osu.ppy.sh/users/9329597">osu!</a>. My music is released on <a class="cleanlink link-turkis"  href="https://soundcloud.com/moonlvnd">SoundCloud</a>.
               </div>
             </div>
           </div>
       </div>
       <div class="scrollsnapcontainer">
       <div class="blogpage page flexcol" id="blogpage" ref="blogpage">
-        <svg class="imgleft blogimg" width="632" height="594" viewBox="0 0 632 594" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="imgleft blogimg" ref="blogsvg" width="632" height="594" viewBox="0 0 632 594" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="undraw_Blog_post_re_fy5x 1" clip-path="url(#clip0)">
             <g id="Person1">
               <path class="Person1Animation2" id="Person1ArmLeft" d="M30.8318 417.507C32.1271 416.619 33.212 415.458 34.0101 414.105C34.8081 412.753 35.2998 411.242 35.4507 409.678C35.6015 408.115 35.4077 406.538 34.883 405.057C34.3583 403.577 33.5154 402.23 32.4137 401.111L36.5808 308.093L15.3653 310.474L16.5979 401.459C14.8403 403.434 13.8683 405.986 13.8663 408.63C13.8642 411.274 14.8321 413.827 16.5866 415.805C18.3412 417.783 20.7604 419.049 23.3858 419.363C26.0113 419.677 28.6606 419.016 30.8318 417.507V417.507Z" fill="#FFB8B8"/>
@@ -73,9 +73,16 @@
             <div class="containercontent">
               <h1 class="textheading">My Blog</h1>
               <div class="textcontent">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet justo donec enim diam vulputate. Faucibus purus in massa tempor nec feugiat nisl pretium. Nisi est sit amet facilisis magna etiam tempor orci eu. Sed augue lacus viverra vitae congue. Commodo quis imperdiet massa tincidunt nunc pulvinar. Vitae semper quis lectus nulla at. Elementum nibh tellus molestie nunc non blandit. Pellentesque diam volutpat commodo sed. Aliquet lectus proin nibh nisl condimentum id venenatis a. Aliquet nibh praesent tristique magna sit amet. Risus at ultrices mi tempus. Natoque penatibus et magnis dis parturient montes nascetur.
-
-                      In ornare quam viverra orci sagittis. Nullam vehicula ipsum a arcu cursus vitae. Ac felis donec et odio pellentesque diam volutpat. Nunc pulvinar sapien et ligula ullamcorper malesuada proin libero. Consequat semper viverra nam libero justo laoreet sit amet. Magna etiam tempor orci eu lobortis elementum nibh. Bibendum neque egestas congue quisque egestas diam in arcu. Semper ege facilisis gravida neque convallis.
+                <p>
+                  <strong class="color-orange">MOONLVND</strong> - My blog about music and music-making. 
+                </p>
+                <p style="padding-bottom: 1rem;">
+                  The blog works on itself without any external frameworks, like wordpress or jekyll. It is built using an API, where blog posts are stored in a database and can be published through a dashboard.
+                </p>
+                <p>
+                For a detailed explanation on how it works: 
+                </p>
+                <a class="contentbtn btn-orange" href="./blog">Click here</a>
               </div>
             </div>
         </div>
@@ -91,9 +98,11 @@
           <div class="containercontent">
             <h1 class="textheading">This Website</h1>
             <div class="textcontent">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet justo donec enim diam vulputate. Faucibus purus in massa tempor nec feugiat nisl pretium. Nisi est sit amet facilisis magna etiam tempor orci eu. Sed augue lacus viverra vitae congue. Commodo quis imperdiet massa tincidunt nunc pulvinar. Vitae semper quis lectus nulla at. Elementum nibh tellus molestie nunc non blandit. Pellentesque diam volutpat commodo sed. Aliquet lectus proin nibh nisl condimentum id venenatis a. Aliquet nibh praesent tristique magna sit amet. Risus at ultrices mi tempus. Natoque penatibus et magnis dis parturient montes nascetur.
-
-                    In ornare quam viverra orci sagittis. Nullam vehicula ipsum a arcu cursus vitae. Ac felis donec et odio pellentesque diam volutpat. Nunc pulvinar sapien et ligula ullamcorper malesuada proin libero. Consequat semper viverra nam libero justo laoreet sit amet. Magna etiam tempor orci eu lobortis elementum nibh. Bibendum neque egestas congue quisque egestas diam in arcu. Semper ege facilisis gravida neque convallis.
+              <p style="padding-bottom: 1rem;">
+                Obviously, I also created this website. This site uses <strong class="color-red">VueJS</strong> as the framework with added plugins like scrollmagic or vue-router. Everything is designed and implemented by me.
+              </p>
+              <p>For more information: </p>
+              <a href="https://github.com/staddle/bnryvue" class="contentbtn btn-red">Click here</a>
             </div>
           </div>
         </div>
@@ -111,9 +120,12 @@
           <div class="containercontent">
             <h1 class="textheading">Discord Bot</h1>
             <div class="textcontent">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet justo donec enim diam vulputate. Faucibus purus in massa tempor nec feugiat nisl pretium. Nisi est sit amet facilisis magna etiam tempor orci eu. Sed augue lacus viverra vitae congue. Commodo quis imperdiet massa tincidunt nunc pulvinar. Vitae semper quis lectus nulla at. Elementum nibh tellus molestie nunc non blandit. Pellentesque diam volutpat commodo sed. Aliquet lectus proin nibh nisl condimentum id venenatis a. Aliquet nibh praesent tristique magna sit amet. Risus at ultrices mi tempus. Natoque penatibus et magnis dis parturient montes nascetur.
-
-                    In ornare quam viverra orci sagittis. Nullam vehicula ipsum a arcu cursus vitae. Ac felis donec et odio pellentesque diam volutpat. Nunc pulvinar sapien et ligula ullamcorper malesuada proin libero. Consequat semper viverra nam libero justo laoreet sit amet. Magna etiam tempor orci eu lobortis elementum nibh. Bibendum neque egestas congue quisque egestas diam in arcu. Semper ege facilisis gravida neque convallis.
+              <p style="padding-bottom: 1rem;">
+                <strong class="color-orange">Discord</strong> has become the main communiction platform for nearly anything online. With support for chat, voice, video and screenshare, its usecases are endless. <br/>
+                Using python library <a class="cleanlink link-orange" href="https://discordpy.readthedocs.io/en/stable/intro.html">discord.py</a>, my bot "staddleBot" enhances servers with unique, funny and quirky commands. Though it is rarely updated nowadays, it still sees use in multiple servers.
+              </p>
+              <p>For more information: </p>
+              <a href="https://discordapp.com/api/oauth2/authorize?client_id=638406276757585941&permissions=8&scope=bot" class="contentbtn btn-orange">Click here</a>
             </div>
           </div>
         </div>
@@ -129,9 +141,12 @@
           <div class="containercontent timeline-left timeline-turkis">
             <h1 class="textheading">RPG Map</h1>
             <div class="textcontent">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet justo donec enim diam vulputate. Faucibus purus in massa tempor nec feugiat nisl pretium. Nisi est sit amet facilisis magna etiam tempor orci eu. Sed augue lacus viverra vitae congue. Commodo quis imperdiet massa tincidunt nunc pulvinar. Vitae semper quis lectus nulla at. Elementum nibh tellus molestie nunc non blandit. Pellentesque diam volutpat commodo sed. Aliquet lectus proin nibh nisl condimentum id venenatis a. Aliquet nibh praesent tristique magna sit amet. Risus at ultrices mi tempus. Natoque penatibus et magnis dis parturient montes nascetur.
-
-                    In ornare quam viverra orci sagittis. Nullam vehicula ipsum a arcu cursus vitae. Ac felis donec et odio pellentesque diam volutpat. Nunc pulvinar sapien et ligula ullamcorper malesuada proin libero. Consequat semper viverra nam libero justo laoreet sit amet. Magna etiam tempor orci eu lobortis elementum nibh. Bibendum neque egestas congue quisque egestas diam in arcu. Semper ege facilisis gravida neque convallis.
+              <p style="padding-bottom: 1rem;">
+                Pen and paper roleplaying games used to, as the name suggests, solely be played sitting together at a table, with a pen and paper infront of each player. Although this way of playing still has its charms, today these games can be enhanced with digital apps and features, such as character sheets in an app for better overview and easier access to all stats. <br/>
+                My program <strong class="color-turkis">Interactive Map for Roleplaying</strong> gives access to a simplified map for anyones roleplaing campaign. You can create your own map and add interesting points to it to keep track of where you and your friends are and where you want to move next.
+              </p>
+              <p>For more information: </p>
+              <a href="https://github.com/staddle/InteractiveMap-for-Roleplaying" class="contentbtn btn-turkis">Click here</a>
             </div>
           </div>
         </div>
@@ -200,7 +215,7 @@ export default {
           .addTo(controller);
       new Scene({
             triggerElement: this.$refs.blogTLDOT,
-            duration: "300%",
+            duration: "0",
             triggerHook: 'onLeave',
             offset: 120
           })
@@ -208,7 +223,7 @@ export default {
           .addTo(controller);
       
 
-      const tlDotTL = gsap.timeline({paused: true})
+      /*const tlDotTL = gsap.timeline({paused: true})
       tlDotTL.to(this.$refs.tlDotB, {duration: 1, x: '-3.9rem'})     
       const tlDotScene = new ScrollScene({
               triggerElement: this.$refs.blogTLDOT,
@@ -222,7 +237,7 @@ export default {
       //tlDotScene.Scene.addIndicators();
 
       const tlDotTL2 = gsap.timeline({paused: true})
-      tlDotTL2.to(this.$refs.tlDotB, {duration: 1, y: '50px', ease: 'linear'})
+      tlDotTL2.to(this.$refs.tlDotB, {duration: 1, y: '65vh', ease: 'linear'})
       const tlDotScene2 = new ScrollScene({
               triggerElement: this.$refs.blogTLDOT,
               triggerHook: 0.2,
@@ -230,24 +245,20 @@ export default {
               gsap: {
                   timeline: tlDotTL2
               },
-              duration: 400
-      })
-      tlDotScene2.Scene.addIndicators()
+              duration: "180%"
+      })*/
 
-      const tlDotTL3 = gsap.timeline({paused: true})
-      tlDotTL3.to(this.$refs.tlDotB, {duration: 1, y: '50px', ease: 'linear'})
+      //const tlDotTL3 = gsap.timeline({paused: true})
+      //tlDotTL3.to(this.$refs.tlDotB, {duration: 1, y: '650', ease: 'linear'})
       const tlDotScene3 = new ScrollScene({
               triggerElement: this.$refs.blogTLDOT,
               triggerHook: 0.2,
-              offset: 2500,
-              gsap: {
-                  timeline: tlDotTL3
-              },
-              duration: 400
+              offset: 1500,
+              duration: 0
       })
-      tlDotScene3.Scene.addIndicators()
+      tlDotScene3.Scene.setClassToggle(this.$refs.blogsvg, 'blogimghover')
 
-      const tlDotTL4 = gsap.timeline({paused: true})
+      /*const tlDotTL4 = gsap.timeline({paused: true})
       tlDotTL4.to(this.$refs.tlDotB, {duration: 1, css: {opacity: 0}})
       tlDotTL4.to(this.$refs.tlDotW, {duration: 1, x: '-3.9rem', y: -5})
       const tlDotScene4 = new ScrollScene({
@@ -277,8 +288,8 @@ export default {
       const tlDotScene6 = new ScrollScene({
               triggerElement: this.$refs.websitepage,
               triggerHook: 0.2,
-              offset: 0,
-              duration: 0
+              offset: 100,
+              duration: "0"
       })
       tlDotScene6.Scene.setPin(this.$refs.tlDotW, {pushFollowers: false})
 
@@ -306,7 +317,7 @@ export default {
               },
               duration: 400
       })
-      //tlDotScene6.Scene.addIndicators()
+      //tlDotScene6.Scene.addIndicators()*/
     }
   }
 </script>

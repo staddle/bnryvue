@@ -16,6 +16,7 @@
     "axios": "^0.21.1",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.6.5",
+    "emailjs-com": "^3.2.0",
     "gsap": "^3.7.0",
     "jquery": "^3.6.0",
     "prismic-dom": "^2.2.5",

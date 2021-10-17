@@ -19,7 +19,7 @@
             <router-link class="nav-link" to="/home">Home</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/home#blog">Projects</router-link>
+            <router-link class="nav-link" to="/home#blogpage">Projects</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/blog">Blog</router-link>

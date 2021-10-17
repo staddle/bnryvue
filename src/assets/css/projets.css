@@ -200,6 +200,8 @@
 .containercontent {
   padding-top: 2rem;
   height: 100%;
+  z-index: 3;
+  position: inherit;
 }
 
 .textright .containercontent {
@@ -249,6 +251,10 @@
 
 .mappage {
   background-color: #D66BA0;
+}
+
+.blogimg {
+  margin-top: 5rem;
 }
 
 .websitepageimg {
@@ -332,7 +338,7 @@
 }
 
 .contactinputs {
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
 }
 
 .contactinput {
@@ -365,9 +371,53 @@
   outline: 2px solid white;
 }
 
+.contacttext {
+  margin-top: 1rem;
+  width: 41rem;
+  background-color: #343a40;
+  color: white;
+  border: none;
+  padding: .5rem;
+  height: 6rem;
+}
+
+.contacttext:focus {
+  outline: 2px solid #95190c;
+}
+
 .footerpage {
   background-color: #3A055A;
   height: 30vh;
+  width: 100%;
+}
+
+.righttext {
+  text-align: right;
+}
+
+.fillimg {
+  height: 30vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.smolimg {
+  height: 70%;
+  width: 70%;
+}
+
+.paddingtopbottom {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .timelineDot {
@@ -379,6 +429,50 @@
   height: 0;
   width: 0;
   z-index: 1000;
+}
+
+.contentbtn {
+  padding: .5rem 1rem;
+}
+
+.btn-orange {
+  background-color: #D65108;
+  color: white;
+}
+
+.btn-orange:hover {
+  background-color: #a53e06;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+
+#tlDotW {
+  border-color: #95190c !important;
+}
+
+.btn-red {
+  background-color: #95190c;
+  color: white;
+}
+
+.btn-red:hover {
+  background-color: #661108;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+
+.btn-turkis {
+  background-color: #388697;
+  color: white;
+}
+
+.btn-turkis:hover {
+  background-color: #2a6572;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
 }
 
 svg {
@@ -393,7 +487,7 @@ svg {
   transition: all 1s ease;
 }
 
-.blogimg:hover .Person2Animation1 {
+.blogimghover .Person2Animation1 {
   -webkit-transform: rotate(30deg);
           transform: rotate(30deg);
 }
@@ -405,7 +499,7 @@ svg {
   transition: all .7s ease;
 }
 
-.blogimg:hover .Person2Animation2 {
+.blogimghover .Person2Animation2 {
   -webkit-transform: rotate(20deg);
           transform: rotate(20deg);
 }
@@ -417,7 +511,7 @@ svg {
           transform-origin: 307px 160px;
 }
 
-.blogimg:hover .BlogAnimation1 {
+.blogimghover .BlogAnimation1 {
   -webkit-transform: scale(103%) translateY(-20px);
           transform: scale(103%) translateY(-20px);
 }
@@ -427,7 +521,7 @@ svg {
   transition: all 1s ease;
 }
 
-.blogimg:hover .BlogAnimation2 {
+.blogimghover .BlogAnimation2 {
   -webkit-transform: translateY(-20px);
           transform: translateY(-20px);
 }
@@ -439,7 +533,7 @@ svg {
           transform-origin: 60px 223px;
 }
 
-.blogimg:hover .Person1Animation1 {
+.blogimghover .Person1Animation1 {
   -webkit-transform: rotate(10deg);
           transform: rotate(10deg);
 }
@@ -451,7 +545,7 @@ svg {
           transform-origin: 32px 285px;
 }
 
-.blogimg:hover .Person1Animation2 {
+.blogimghover .Person1Animation2 {
   -webkit-transform: rotate(-10deg);
           transform: rotate(-10deg);
 }
@@ -463,7 +557,7 @@ svg {
           transform-origin: 90px 300px;
 }
 
-.blogimg:hover .Person1Animation3 {
+.blogimghover .Person1Animation3 {
   -webkit-transform: rotate(10deg);
           transform: rotate(10deg);
 }
@@ -475,8 +569,56 @@ svg {
           transform-origin: 75px 580px;
 }
 
-.blogimg:hover .Person1Animation4 {
+.blogimghover .Person1Animation4 {
   -webkit-transform: rotate(-20deg);
           transform: rotate(-20deg);
+}
+
+.row100 {
+  width: 100%;
+}
+
+.cleanlink {
+  text-decoration: none;
+}
+
+.cleanlink:hover {
+  text-decoration: none;
+}
+
+.link-orange {
+  color: #D65108;
+}
+
+.link-orange:hover {
+  color: #a53e06;
+}
+
+.link-turkis {
+  color: #6cb8c9;
+}
+
+.link-turkis:hover {
+  color: #47a6bb;
+}
+
+.link-purple {
+  color: #c167f7;
+}
+
+.link-purple:hover {
+  color: #1b022a;
+}
+
+.color-turkis {
+  color: #6cb8c9;
+}
+
+.color-orange {
+  color: #D65108;
+}
+
+.color-red {
+  color: #ed2e1a;
 }
 /*# sourceMappingURL=projets.css.map */

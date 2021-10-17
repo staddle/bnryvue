@@ -173,7 +173,9 @@ html{
 
 .containercontent{
     padding-top: 2rem;
-    height: 100%
+    height: 100%;
+    z-index: 3;
+    position: inherit;
 }
 .textright .containercontent{
     margin-left: 3rem;
@@ -213,6 +215,9 @@ html{
 }
 .mappage{
     background-color: $color_rose;
+}
+.blogimg{
+    margin-top: 5rem;
 }
 .websitepageimg{
     width: 40%;
@@ -276,7 +281,7 @@ html{
     padding-bottom: 2rem;
 }
 .contactinputs{
-    padding-bottom: 3rem;
+    padding-bottom: 2rem;
 }
 .contactinput{  
     background-color: $color_gray;
@@ -304,10 +309,47 @@ html{
 .contactbtn:focus{
     outline: 2px solid white;
 }
+.contacttext{
+    margin-top: 1rem;
+    width: 41rem;
+    background-color: $color_gray;
+    color: white;
+    border: none;
+    padding: .5rem;
+    height: 6rem;
+}
+.contacttext:focus{
+    outline: 2px solid $color_red;
+}
 
 .footerpage{
     background-color: $color_purple;
     height: 30vh;
+    width: 100%;
+}
+
+//right aligned text
+.righttext{
+    text-align: right;
+}
+
+//image that fill the whole container
+.fillimg{
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.smolimg{
+    height: 70%;
+    width: 70%;
+}
+//1rem padding top and bottom 
+.paddingtopbottom{
+    //height: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .timelineDot{
@@ -321,6 +363,47 @@ html{
     z-index: 1000;
 }
 
+.contentbtn{
+    padding: .5rem 1rem;
+}
+
+.btn-orange{
+    background-color: $color_orange;
+    color: white;
+}
+.btn-orange:hover{
+    background-color: darken($color_orange, 10%);
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+#tlDotW{
+    border-color: $color_red !important;
+}
+
+.btn-red{
+    background-color: $color_red;
+    color: white;
+}
+.btn-red:hover{
+    background-color: darken($color_red, 10%);
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+.btn-turkis{
+    background-color: $color_turkis;
+    color: white;
+}
+.btn-turkis:hover{
+    background-color: darken($color_turkis, 10%);
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
 svg{
     transform-box: fill-box;
     z-index: 2;
@@ -330,7 +413,7 @@ svg{
     transform-origin: 550px 300px;
     transition: all 1s ease;
 }
-.blogimg:hover .Person2Animation1{
+.blogimghover .Person2Animation1{
     transform: rotate(30deg);
 }
 
@@ -338,7 +421,7 @@ svg{
     transform-origin: 580px 240px;
     transition: all .7s ease;
 }
-.blogimg:hover .Person2Animation2{
+.blogimghover .Person2Animation2{
     transform: rotate(20deg);
 }
 
@@ -346,14 +429,14 @@ svg{
     transition: all .6s ease;
     transform-origin: 307px 160px;
 }
-.blogimg:hover .BlogAnimation1{
+.blogimghover .BlogAnimation1{
     transform: scale(103%) translateY(-20px);
 }
 
 .BlogAnimation2{
     transition: all 1s ease;
 }
-.blogimg:hover .BlogAnimation2{
+.blogimghover .BlogAnimation2{
     transform: translateY(-20px)
 }
 
@@ -361,7 +444,7 @@ svg{
     transition: all 1s ease;
     transform-origin: 60px 223px;
 }
-.blogimg:hover .Person1Animation1{
+.blogimghover .Person1Animation1{
     transform: rotate(10deg);
 }
 
@@ -369,7 +452,7 @@ svg{
     transition: all 1s ease;
     transform-origin: 32px 285px;
 }
-.blogimg:hover .Person1Animation2{
+.blogimghover .Person1Animation2{
     transform: rotate(-10deg);
 }
 
@@ -377,7 +460,7 @@ svg{
     transition: all 1s ease;
     transform-origin: 90px 300px;
 }
-.blogimg:hover .Person1Animation3{
+.blogimghover .Person1Animation3{
     transform: rotate(10deg);
 }
 
@@ -385,6 +468,49 @@ svg{
     transition: all 1s ease;
     transform-origin: 75px 580px;
 }
-.blogimg:hover .Person1Animation4{
+.blogimghover .Person1Animation4{
     transform: rotate(-20deg);
+
 }
+
+.row100{
+    width: 100%;
+}
+.cleanlink{
+    text-decoration: none;
+}
+.cleanlink:hover{
+    text-decoration: none;
+}
+.link-orange{
+    color: $color_orange;
+    //transition: all .1s ease-in;
+}
+.link-orange:hover{
+    color: darken($color_orange, 10%);
+}
+.link-turkis{
+    color: lighten($color_turkis, 20%);
+    //transition: all .1s ease-in;
+}
+.link-turkis:hover{
+    color: darken(lighten($color_turkis, 20%), 10%);
+}
+.link-purple{
+    color: lighten($color_purple, 50%);
+    //transition: all .1s ease-in;
+}
+.link-purple:hover{
+    color: darken($color_purple, 10%);
+}
+
+.color-turkis{
+    color: lighten($color_turkis, 20%);
+}
+.color-orange{
+    color: $color_orange;
+}
+.color-red{
+    color: lighten($color_red, 20%);
+}
+

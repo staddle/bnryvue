@@ -47,6 +47,9 @@
                                 <a class="links-link links-link-steam" href="https://steamcommunity.com/id/staddle/">>&#8239;steam</a>
                             </li>
                             <li class="links-list-item">
+                                <a class="links-link links-link-steam" href="https://soundcloud.com/moonlvnd">>&#8239;soundcloud</a>
+                            </li>
+                            <li class="links-list-item">
                                 <a class="links-link links-link-youtube" href="https://www.youtube.com/channel/UCiYBRlAdcUNSnBbCSgkamkA">>&#8239;youtube</a>
                             </li>
                         </ul>
