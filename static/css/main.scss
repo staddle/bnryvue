@@ -1,0 +1,122 @@
+@import "@/static/css/bootstrapOverride.scss";
+.floatDiv {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+}
+
+.mainDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 1rem;
+    min-height: 25rem;
+    border: 1px none;
+    border-radius: 1.5rem;
+    box-shadow: 0 0.5rem 1rem rgba($primary, 0.4);
+    padding: 1rem;
+    //background-color: #fefefe;
+    &>.mainImg {
+        width: 50%;
+        height: 50%;
+        object-fit: cover;
+        //border-radius: 1.5rem;
+    }
+    &>.mainName {
+        font-size: 3rem;
+        font-weight: bold;
+        font-family: "Helvetica Neue", sans-serif;
+        color: rgba($primary, 1);
+    }
+    &>.mainTitle {
+        font-size: 1.2rem;
+        font-family: "Helvetica Neue", sans-serif;
+        color: #666;
+    }
+}
+
+.linkTree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.5rem;
+    width: 100%;
+    &>.linkTreeItem {
+        border: solid 1px rgba($primary, 0.4);
+        border-radius: 5px;
+        width: 100%;
+        max-width: 500px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        text-decoration: none;
+        margin: .5rem;
+        & .linkTreeIcon {
+            width: 3rem;
+            height: 3rem;
+            object-fit: contain;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border-right: solid 1px $primary;
+        }
+        & .linkTreeLinkParent {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+        }
+        & .linkTreeLink {
+            font-size: 1.2rem;
+            font-family: "Helvetica Neue", sans-serif;
+            color: #222;
+            text-decoration: none;
+            width: 100%;
+            padding-left: 1rem;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+    &>.linkTreeItem:hover {
+        background-color: rgba($secondary, 0.1);
+        border-color: rgba($secondary, 1);
+        text-decoration: none;
+        & .linkTreeIcon {
+            border-right-color: rgba($secondary, 1);
+        }
+    }
+}
+
+.backgroundDiv {
+    margin-top: -10rem;
+    & .triangle {
+        width: 100%;
+        height: 10rem;
+        fill: $primary
+    }
+    & .otherColor {
+        fill: darken($primary, 10%);
+    }
+    & .otherColor2 {
+        fill: darken($primary, 5%);
+    }
+}
+
+.footer {
+    background-color: $primary;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: white;
+    padding: 0 1rem;
+    font-weight: bold;
+}
+
+.fullHeight {
+    height: 100vh;
+    min-height: 750px;
+}
